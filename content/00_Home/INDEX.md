@@ -1,5 +1,8 @@
 # Home Index
 
+> **VR Mines Second Brain** — Obsidian vault for VR Coal Mining Training Simulator project  
+> **Author**: [[Author_Profile|Prabhakar Deep Tirkey]] | **Project**: DeSCINED Lab, IIT Delhi
+
 ## Quick Links
 - [[../Project_Directory_Index|Project Directory Index]]
 - [[../70_Project_Documentation/XR_to_DOTS_Bridge_Plan|Unity XR → DOTS Bridge Plan]]
@@ -29,9 +32,20 @@
 - [[./Tag_Taxonomy_and_Linking|Tag Taxonomy & Linking]]
 - [[./Periodic_Notes_Setup|Periodic Notes Setup]]
 - [[../Publish/README|Publish — Public Notes]]
+- [[Author_Profile|Author Profile & Social Links]]
+
+## 🌐 Live Site
+- **Public Website**: [https://thatGuyPdeep.github.io/quartz/](https://thatGuyPdeep.github.io/quartz/)
+- **GitHub Repository**: [https://github.com/thatGuyPdeep/quartz](https://github.com/thatGuyPdeep/quartz)
+
+## 📱 Connect
+- **Email**: [thatguypdeep@gmail.com](mailto:thatguypdeep@gmail.com)
+- **LinkedIn**: [@prabhakar-deep](https://www.linkedin.com/in/prabhakar-deep)
+- **YouTube**: [@prabhakardeep](https://www.youtube.com/@prabhakardeep)
+- **GitHub**: [@thatGuyPdeep](https://github.com/thatGuyPdeep)
 
 ---
-Tags: #home #index #xr #unity #quest3
+Tags: #home #index #xr #unity #quest3 #author #social
 
 
 
