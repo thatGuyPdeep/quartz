@@ -1,19 +1,14 @@
-name: Deploy Quartz site to Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - v4
+    branches: [ v4 ]
   workflow_dispatch:
 
 permissions:
   contents: read
   pages: write
   id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
 
 jobs:
   build:
@@ -35,6 +30,9 @@ jobs:
 
       - name: Build Quartz
         run: npx quartz build --bundleInfo -d docs
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
