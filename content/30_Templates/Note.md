@@ -1,7 +1,8 @@
 ---
-title: {{title}}
-tags: [xr]
-created: {{date}} {{time}}
+title: "{{title}}"
+tags:
+  - xr
+created: "{{date}} {{time}}"
 ---
 
 # {{title}}
