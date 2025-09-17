@@ -1,11 +1,15 @@
 ---
 uid: gdd-vr-mines
-project: VR Mines
-title: VR Mines: SafeOps — Game Design Document (Quest 3 + DOTS)
-version: 0.9
+project: "VR Mines"
+title: "VR Mines: SafeOps — Game Design Document (Quest 3 + DOTS)"
+version: "0.9"
 status: living
-updated: 2025-09-15
-tags: [gdd, vr, dots, quest3]
+updated: "2025-09-15"
+tags:
+  - gdd
+  - vr
+  - dots
+  - quest3
 ---
 
 > This is the Obsidian-linked GDD. Original source: external `d:\gdd\VR_Mines_GDD.md`.
