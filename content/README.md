@@ -162,11 +162,11 @@ I'm documenting this entire learning process through:
 
 ## 📞 Contact & Links
 
-- **Email**: [Your Email]
-- **LinkedIn**: [Your LinkedIn]
-- **Twitter/X**: [Your Twitter]
-- **YouTube**: [Your YouTube Channel]
-- **GitHub**: [Your GitHub Profile]
+- **Email**: thatguypdeep@gmail.com
+- **LinkedIn**: https://www.linkedin.com/in/prabhakar-deep
+- **Twitter/X**: https://x.com/TPdeep
+- **YouTube**: https://www.youtube.com/@prabhakardeep
+- **GitHub**: https://github.com/thatGuyPdeep
 
 ## 📄 License
 

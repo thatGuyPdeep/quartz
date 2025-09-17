@@ -27,7 +27,7 @@ created: 2025-01-16
 - **Programming**: C#, Python, ML/AI integration
 - **Design**: User experience, interaction design, creative prototyping
 - **Research**: Cognitive science, memory, attention, learning under stress
-- **Specialization**: VR/AR, automation (n8n), branding, digital art
+- **Specialization**: Programming, automation (n8n), branding, digital art
 
 ### 🧩 Philosophy
 > **"VR = creating immersive experiences, not just coding mechanics"**
@@ -44,7 +44,7 @@ created: 2025-01-16
 | **LinkedIn** | [@prabhakar-deep](https://www.linkedin.com/in/prabhakar-deep) | Professional network, career updates |
 | **YouTube** | [@prabhakardeep](https://www.youtube.com/@prabhakardeep) | Devlogs, livestreams, XR tutorials |
 | **GitHub** | [@thatGuyPdeep](https://github.com/thatGuyPdeep) | Code repositories, open source projects |
-| **Twitter/X** | [@thatGuyPdeep](https://twitter.com/thatGuyPdeep) | Quick updates, tech discussions |
+| **Twitter/X** | [@thatGuyPdeep](https://twitter.com/TPdeep) | Quick updates, tech discussions |
 
 ### 🎥 Content Strategy
 - **Weekly livestreams** → "Learning XR in Public" (60–90 min)

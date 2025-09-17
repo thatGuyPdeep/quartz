@@ -1,8 +1,7 @@
 # Home Index
 
 > **VR Mines Second Brain** — Obsidian vault for VR Coal Mining Training Simulator project  
-> **Author**: [[Author_Profile|Prabhakar Deep Tirkey]] | **Project**: DeSCINED Lab, IIT Delhi  
-> **Supervisor**: Prof. Srinivasan Venkataraman
+> **Author**: [[Author_Profile|Prabhakar Deep Tirkey]] | **Project**: DeSCINED Lab, IIT Delhi
 
 ## Quick Links
 - [[../Project_Directory_Index|Project Directory Index]]
