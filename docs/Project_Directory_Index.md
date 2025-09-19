@@ -39,6 +39,9 @@ updated: 2025-09-15
 ## Research
 - [[./80_Research_Notes/INDEX|Research Index]]
   - [[./80_Research_Notes/Game_Design_Fundamentals_Bible|Game Design Fundamentals — Bible]]
+  - [[./80_Research_Notes/Interaction_Pattern_Library|Interaction Pattern Library]]
+  - [[./80_Research_Notes/Comfort_and_Safety_Guidelines|Comfort & Safety Guidelines]]
+  - [[./80_Research_Notes/Debrief_Rubric|Debrief Rubric]]
 
 ## Daily/Weekly
 - [[./40_Daily/README|Daily Logs]] • [[./40_Daily/Weekly|Weekly Notes]] • [[./40_Daily/Progress_Tracker|Progress Tracker]]
