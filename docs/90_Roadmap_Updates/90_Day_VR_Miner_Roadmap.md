@@ -2,7 +2,7 @@
 uid: roadmap-90d
 project: VR Mines
 tags: [roadmap, plan]
-updated: 2025-09-19
+updated: 2025-10-04
 ---
 
 # 90-Day Roadmap — VR Miner Training (Quest 3)
@@ -26,16 +26,26 @@ updated: 2025-09-19
 3. Hazards, scoring, debrief (Days 43–63)
 4. DOTS migration, polish, and ship (Days 64–90)
 
-## Gantt
+## Day-14 Progress Update (Research-driven revision)
+- Setup complete: Unity 2023 LTS, OpenXR, XRI rig, URP mobile profile, Quest 3 build pipeline.
+- Store survey and teardown completed for reference titles; captured patterns for locomotion, onboarding, affordances, and feedback.
+- Decisions locked:
+  - Locomotion defaults: teleport + snap turn; continuous move optional with vignette.
+  - Interaction: XRI grab; world-space UI with near-field ray.
+  - Training outcomes first: safety compliance and hazard recognition over sandbox realism.
+  - Performance budgets: 100–120 draw calls; 1.5–2.0M tris; baked lighting; ASTC 6x6.
+- New artifacts to maintain under docs/: Interaction Patterns, Comfort & Safety Guidelines, Debrief rubric.
+
+## Gantt (revised)
 ```mermaid
 gantt
   dateFormat  YYYY-MM-DD
-  title 90-Day Roadmap — VR Miner Training
+  title 90-Day Roadmap — VR Miner Training (rev Day-14)
   section Phase 1: Foundations
   Setup Unity 2023 LTS, OpenXR, XRI     :done,    p1a, 2025-09-20, 3d
-  Learn VR basics (locomotion, grabs)   :active,  p1b, 2025-09-23, 7d
-  Build input bridge + interactions     :         p1c, 2025-09-30, 7d
-  Mobile build pipeline (Quest 3)       :         p1d, 2025-10-07, 4d
+  Research + pattern synthesis          :done,    p1b, 2025-09-23, 11d
+  Input bridge + interactions (XRI)     :active,  p1c, 2025-10-04, 7d
+  Mobile build pipeline (Quest 3)       :         p1d, 2025-10-08, 3d
   section Phase 2: Core Loop
   Scene setup + lighting pass           :         p2a, 2025-10-12, 5d
   Drill tool MVP (mono)                 :         p2b, 2025-10-17, 6d
@@ -57,9 +67,11 @@ gantt
 - Locomotion: teleport + snap turn + continuous move; comfort vignettes.
 - Grabbing/using tools; build `XRInput_Bridge` wrapper to centralize inputs.
 - First Quest 3 build; verify framerate and render scale; enable Vulkan.
+- Research deliverable: Interaction patterns + Comfort guidelines (DONE).
 
 Deliverables:
 - "VR Playground" scene with interactables; APK running on Quest 3.
+- Pattern library and comfort guidelines feeding tutorial design (NEW).
 
 ### Weeks 4–6: Core Loop
 - Create mine scene using existing assets; budget triangles and textures.
@@ -92,7 +104,7 @@ Deliverables:
 - Data-Driven Hazards: event channels, rule-driven penalties, ECS queries.
 
 ## Milestones & Demos
-- Day 21: Playground demo APK (inputs + interactions).
+- Day 21: Playground demo APK (inputs + interactions) + share research synthesis.
 - Day 42: Core loop demo APK (drill MVP + scene + tutorial).
 - Day 63: Hazards + scoring demo APK.
 - Day 90: DOTS-polished training build with debrief.
