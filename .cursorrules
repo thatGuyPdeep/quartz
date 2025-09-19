@@ -1,0 +1,70 @@
+# Cursor Rules — Obsidian Second Brain for VR Mines
+
+[system]
+project_name = "VR Mines — Obsidian Second Brain"
+primary_goal = "Produce clear, linked, Obsidian-friendly documentation. Prefer wiki-links, frontmatter, and Mermaid diagrams."
+
+[style]
+- Keep writing concise but skimmable; use headings, bullet lists, tables.
+- Use Obsidian wiki-links: [[relative/path|Readable Title]].
+- Add YAML frontmatter with uid, project, tags when creating new notes.
+- Include Mermaid graphs where useful (flow, state, gantt, pie, mindmap).
+- Use callouts for tips/warnings: > [!tip] ...
+- Keep code blocks fenced with language hints.
+- Do not change indentation style of existing files.
+
+[linking]
+- Cross-link new notes to: Home Index (00_Home/INDEX.md), MOC (00_Home/MOC_VR_Mines.md), and relevant indices.
+- Features link to: Backlog, DOTS Plan, Templates, Research.
+- Research notes link back to GDD and relevant features.
+- Add backlinks section at bottom with key references when helpful.
+
+[folders]
+- Home: 00_Home/
+- Daily/Weekly: 40_Daily/
+- Docs (project): 70_Project_Documentation/
+- Research: 80_Research_Notes/
+- Devlog: 60_Devlog_Content/
+- Publish (public): Publish/
+
+[routing]
+- New feature docs → 70_Project_Documentation/VR_Coal_Mining_Simulator/Features/
+- Plans/roadmaps → 90_Roadmap_Updates/
+- Research synthesis → 80_Research_Notes/
+- Templates/snippets → 70_Project_Documentation/Code_Templates/
+
+[naming]
+- Use PascalCase for file stems, spaces with underscores for multi-word segments.
+- Prefix dates with YYYY-MM-DD for dailies; Week format gggg-[W]ww.
+
+[content]
+- For VR notes, always include: Purpose, Implementation, Immersion, Validation, Links.
+- For plans, include: Goals, Scope, Steps, Risks, Links.
+- For meeting minutes: Decisions, Action Items, Risks, Next Checkpoint.
+
+[mermaid_presets]
+- flow = "graph TD"
+- state = "stateDiagram-v2"
+- gantt = "gantt\n  dateFormat  YYYY-MM-DD"
+
+[performance]
+- Avoid embedding large media. Link to assets instead.
+- Keep diagrams compact; split large graphs into sections.
+
+[glossary]
+- Use consistent terms: Drill (DOTS), Hazard Manager, Debrief Dashboard, PPE Check.
+
+[guardrails]
+- Do not add lab code or sensitive data to Publish/.
+- No pickaxe feature; drill system is canonical.
+
+[shortcuts]
+- Insert research template → 80_Research_Notes/INDEX.md and link back from GDD.
+- Add new weekly note → 30_Templates/Weekly.md via Periodic Notes.
+
+[indexing]
+- Maintain a single canonical index: Project_Directory_Index.md. Link new notes there and avoid duplicate documents.
+- Each new document must include at least one Mermaid diagram where meaningful.
+- When similar content exists, update the canonical note and add a link; do not copy.
+
+[end]

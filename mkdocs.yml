@@ -1,0 +1,45 @@
+site_name: VR Mines — Obsidian Second Brain
+site_description: Public, Obsidian-friendly docs for the VR Coal Mining Simulator
+site_dir: site
+docs_dir: .
+use_directory_urls: true
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+
+plugins:
+  - search
+  - roamlinks:
+      use_full_doc_path: true
+  - glightbox
+  - redirects
+  - include-markdown
+
+markdown_extensions:
+  - admonition
+  - footnotes
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/thatGuyPdeep
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/@prabhakardeep
+

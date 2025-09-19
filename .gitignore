@@ -1,0 +1,12 @@
+# Build
+/site/
+
+# OS/Editor
+.DS_Store
+Thumbs.db
+.obsidian/
+.cache/
+
+# Node/venv if present
+node_modules/
+.env

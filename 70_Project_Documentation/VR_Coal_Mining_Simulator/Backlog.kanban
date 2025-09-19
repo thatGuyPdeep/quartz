@@ -1,0 +1,49 @@
+---
+kanban-plugin: basic
+---
+
+## TODO
+- [ ] ECS Drill Motion — baseline torque control
+- [ ] ECS Drill Collision — material-based impacts
+- [ ] Spatial Audio routing — voice vs noise separation
+- [ ] Safety Gear Enforcement — helmet/oxygen checks
+- [ ] Gas Leak Hazard — detection + alarm
+
+# Probation Plan (14 days)
+- [ ] Day 1: Create SubScenes for Menu and Level scenes
+- [ ] Day 2: Create SubScenes for Cave_Drill, L2, L3
+- [ ] Day 2: Create SubScenes for Blasting, Control, Safety scenes
+- [ ] Day 3: Implement DrillArmAuthoring + Baker → DrillArm
+- [ ] Day 3: Implement DrillSpotAuthoring + Baker → DrillSpot
+- [ ] Day 4: Implement WaterLoggingAuthoring + Baker → WaterLogging
+- [ ] Day 4: Convert drill machine and lever prefabs via Bakers
+- [ ] Day 5: Implement DrillArmControlSystem (input → rotation with clamps)
+- [ ] Day 5: Implement DrillProgress/Completion systems (contact, timers, +200)
+- [ ] Day 6: Implement WaterLeakStart/Raise/Lower + PumpToggle systems
+- [ ] Day 6: Add OneShot/Looping audio bridge events for water/pump
+- [ ] Day 7: Implement ScoreSystem + ScoreEvent buffer; MistakeSystem
+- [ ] Day 7: HUD Score presenter bridge (ECS → TMP)
+- [ ] Day 8: VehicleAuthoring + VehicleMoveSystem (hybrid physics)
+- [ ] Day 8: Map Input System actions to ECS input singleton
+- [ ] Day 9: ForkliftLiftAuthoring + ForkliftLiftSystem + Liftable tag
+- [ ] Day 9: Convert coal, pipes, cave prefabs via Bakers
+- [ ] Day 10: CoalSpawnerAuthoring + CoalSpawnSystem
+- [ ] Day 10: Update Systems_Analysis matrices with converted items
+- [ ] Day 11: Blasting interactables authoring + BlastingSystem hooks
+- [ ] Day 11: Add particles bridge (ECS flags → VFX)
+- [ ] Day 12: Optimize Top 50 assets (ASTC/ETC, Vorbis); reimport
+- [ ] Day 12: URP shader audit; replace surface shaders if any
+- [ ] Day 13: Parity tests (drill, water, vehicles, forklift, blasting)
+- [ ] Day 13: Performance profiling on Quest 3; budget adjustments
+- [ ] Day 14: Results UI bridge + RunResult component (replace GlobalLevelResult)
+- [ ] Day 14: Clean up docs and link indexes; close completed backlog items
+
+## In Progress
+- [ ] DOTS Migration Plan — finalize scope
+- [ ] Day 1: Run asset inventory and review Top 50 findings
+
+## Review
+- [ ] Roadmap Week 1 update — review
+
+## Done
+- [x] Remove pickaxe scope
