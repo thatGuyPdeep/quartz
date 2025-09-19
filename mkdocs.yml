@@ -1,7 +1,7 @@
 site_name: VR Mines — Obsidian Second Brain
 site_description: Public, Obsidian-friendly docs for the VR Coal Mining Simulator
 site_dir: site
-docs_dir: .
+docs_dir: docs
 use_directory_urls: true
 
 theme:
@@ -17,8 +17,7 @@ theme:
 
 plugins:
   - search
-  - roamlinks:
-      use_full_doc_path: true
+  - roamlinks
   - glightbox
   - redirects
   - include-markdown
