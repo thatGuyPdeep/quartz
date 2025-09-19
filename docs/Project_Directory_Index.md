@@ -14,6 +14,7 @@ updated: 2025-09-15
 
 ## Plans & Roadmaps
 - [[./90_Roadmap_Updates/90_Day_Master_Plan|90-Day Build + Post-90 Polish]]
+- [[./90_Roadmap_Updates/90_Day_VR_Miner_Roadmap|90-Day Roadmap — VR Miner Training (Quest 3)]]
 - [[./70_Project_Documentation/DOTS_Migration_Plan|DOTS Migration Plan]]
 - [[./70_Project_Documentation/XR_to_DOTS_Bridge_Plan|Unity XR → DOTS Bridge Plan]]
 
