@@ -42,3 +42,9 @@ extra:
     - icon: fontawesome/brands/youtube
       link: https://www.youtube.com/@prabhakardeep
 
+extra_css:
+  - assets/ui/graph-pane.css
+
+extra_javascript:
+  - assets/ui/graph-pane.js
+
