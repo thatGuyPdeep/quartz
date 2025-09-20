@@ -1,0 +1,3989 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Public, Obsidian-friendly docs for the VR Coal Mining Simulator">
+      
+      
+      
+      
+        <link rel="prev" href="../Project_Directory_Index/">
+      
+      
+        <link rel="next" href="../XR_Learning_Roadmap/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.21">
+    
+    
+      
+        <title>XR Learning Project Structure - VR Mines — Obsidian Second Brain</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.66ac8b77.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#xr-learning-project-structure" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="VR Mines — Obsidian Second Brain" class="md-header__button md-logo" aria-label="VR Mines — Obsidian Second Brain" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            VR Mines — Obsidian Second Brain
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              XR Learning Project Structure
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  VR Mines — Obsidian Second Brain
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../01_Environment_Setup/" class="md-tabs__link">
+        
+  
+    
+  
+  01 Environment Setup
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../02_Beginner_Projects/" class="md-tabs__link">
+        
+  
+    
+  
+  02 Beginner Projects
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../03_Intermediate_Projects/" class="md-tabs__link">
+        
+  
+    
+  
+  03 Intermediate Projects
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../04_Advanced_Projects/" class="md-tabs__link">
+        
+  
+    
+  
+  04 Advanced Projects
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../05_Deployment_Guide/" class="md-tabs__link">
+        
+  
+    
+  
+  05 Deployment Guide
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Project_Directory_Index/" class="md-tabs__link">
+        
+  
+    
+  
+  Project Directory Index (Authoritative Links)
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  XR Learning Project Structure
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../XR_Learning_Roadmap/" class="md-tabs__link">
+        
+  
+    
+  
+  Unity XR Development Learning Roadmap
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../00_Home/Author_Profile/" class="md-tabs__link">
+          
+  
+  00 Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../30_Templates/Daily/" class="md-tabs__link">
+          
+  
+  30 Templates
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../40_Daily/" class="md-tabs__link">
+          
+  
+  40 Daily
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../60_Devlog_Content/YouTube_Devlog_Script_Week1/" class="md-tabs__link">
+          
+  
+  60 Devlog Content
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../70_Project_Documentation/DOTS_Migration_Plan/" class="md-tabs__link">
+          
+  
+  70 Project Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../80_Research_Notes/Coal_Mining_Workflow_and_Machines/" class="md-tabs__link">
+          
+  
+  80 Research Notes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../90_Roadmap_Updates/90_Day_Master_Plan/" class="md-tabs__link">
+          
+  
+  90 Roadmap Updates
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Publish/" class="md-tabs__link">
+          
+  
+  Publish
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="VR Mines — Obsidian Second Brain" class="md-nav__button md-logo" aria-label="VR Mines — Obsidian Second Brain" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+
+    </a>
+    VR Mines — Obsidian Second Brain
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VR Mines — Obsidian Second Brain
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_Environment_Setup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    01 Environment Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_Beginner_Projects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    02 Beginner Projects
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_Intermediate_Projects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    03 Intermediate Projects
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_Advanced_Projects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    04 Advanced Projects
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_Deployment_Guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    05 Deployment Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Project_Directory_Index/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Project Directory Index (Authoritative Links)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    XR Learning Project Structure
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    XR Learning Project Structure
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-folder-organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommended Folder Organization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-naming-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Naming Conventions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Project Naming Conventions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unity-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unity Projects
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scripts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prefabs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prefabs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-control-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Version Control Strategy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Version Control Strategy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-repository-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git Repository Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gitignore-for-unity-xr-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      .gitignore for Unity XR Projects
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Development Workflow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Development Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-project-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Project Creation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-version-control-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Version Control Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-development-cycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Development Cycle
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asset-organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Asset Organization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Asset Organization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scripts-folder-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scripts Folder Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prefabs-organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prefabs Organization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation Standards
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Documentation Standards">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Documentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Documentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learning-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Notes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-and-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build and Deployment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Build and Deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build Scripts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../XR_Learning_Roadmap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unity XR Development Learning Roadmap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10">
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    00 Home
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            00 Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00_Home/Author_Profile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Author Profile
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00_Home/Graph_Overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Graph Overview — VR Mines
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--active"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00_Home/INDEX/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home Index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00_Home/MOC_Concepts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MOC: Concepts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00_Home/MOC_Projects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MOC: Projects
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00_Home/MOC_Tutorials/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MOC: Tutorials &amp; Courses
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00_Home/MOC_VR_Mines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MOC — VR Mines (Training Simulator)
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--active"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00_Home/Periodic_Notes_Setup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Periodic Notes Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00_Home/Project_Dashboard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VR Mines — Project Dashboard
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--active"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00_Home/Resources_Index/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resources Index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00_Home/Tag_Taxonomy_and_Linking/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tag Taxonomy &amp; Linking Conventions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11">
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    30 Templates
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            30 Templates
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../30_Templates/Daily/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    {{date}} — Daily Log
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../30_Templates/Note/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Note
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../30_Templates/Weekly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week {{date:gggg-[W]ww}}
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12">
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    40 Daily
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            40 Daily
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../40_Daily/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Daily Logs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../40_Daily/2025-09-08/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2025-09-08 — Daily Log
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../40_Daily/2025-09-09/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2025-09-09 — Daily Log
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../40_Daily/2025-09-10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2025-09-10 — Daily Log
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../40_Daily/2025-09-11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2025-09-11 — Daily Log
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../40_Daily/2025-09-12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2025-09-12 — Daily Log
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../40_Daily/2025-09-16/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Daily — 2025-09-16 (Week 1, Day 2)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../40_Daily/2025-09-17/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Daily — 2025-09-17 (Week 1, Day 3)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../40_Daily/2025-09-18/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Daily — 2025-09-18 (Week 1, Day 4)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../40_Daily/2025-09-19/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Daily — 2025-09-19 (Week 1, Day 5)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../40_Daily/2025-09-20/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Daily — 2025-09-20 (Week 1, Day 6)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../40_Daily/2025-09-21/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Daily — 2025-09-21 (Week 1, Day 7)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../40_Daily/2025-09-22/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Daily — 2025-09-22 (Week 2, Day 8)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../40_Daily/2025-09-23/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Daily — 2025-09-23 (Week 2, Day 9)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../40_Daily/2025-09-24/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Daily — 2025-09-24 (Week 2, Day 10)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../40_Daily/2025-09-25/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Daily — 2025-09-25 (Week 2, Day 11)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../40_Daily/2025-09-26/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Daily — 2025-09-26 (Week 2, Day 12)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../40_Daily/2025-09-27/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Daily — 2025-09-27 (Week 2, Day 13)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../40_Daily/2025-09-28/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Daily — 2025-09-28 (Week 2, Day 14)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../40_Daily/Progress_Tracker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Progress Tracker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13">
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    60 Devlog Content
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            60 Devlog Content
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../60_Devlog_Content/YouTube_Devlog_Script_Week1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    YouTube Devlog Script - Week 1: "Learning XR in Public"
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14">
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    70 Project Documentation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            70 Project Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../70_Project_Documentation/DOTS_Migration_Plan/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DOTS Migration Plan — VR Coal Mining Simulator
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--active"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../70_Project_Documentation/Design_Brief_Game_Design_Gamification/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VR Training — Game Design &amp; Gamification Brief (Designer View)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../70_Project_Documentation/Instructor_Guide_Template/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instructor Guide — Template
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../70_Project_Documentation/Quest3_Perf_Profiling_Checklist/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quest 3 Performance &amp; Profiling Checklist
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../70_Project_Documentation/Unity_2023_Quest3_DOTS_Setup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unity 2023.3 Quest 3 + DOTS Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../70_Project_Documentation/User_Flow_Storyline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User Flow + Storyline — VR Mines (SafeOps)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../70_Project_Documentation/XR_to_DOTS_Bridge_Plan/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unity XR → DOTS Bridge Plan
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_8">
+        
+          
+          <label class="md-nav__link" for="__nav_14_8" id="__nav_14_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Code Templates
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14_8">
+            <span class="md-nav__icon md-icon"></span>
+            Code Templates
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../70_Project_Documentation/Code_Templates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DOTS/ECS Code Templates — VR Mines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../70_Project_Documentation/Code_Templates/Drill_Mining_Loop_ECS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Drill Mining Loop (ECS) — Template
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../70_Project_Documentation/Code_Templates/Gas_Zone_and_Roof_Collapse_ECS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gas Zone + Roof Collapse — Template
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../70_Project_Documentation/Code_Templates/Hazards_Random_Spawner_ECS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hazards: Random Spawner — Template
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../70_Project_Documentation/Code_Templates/INDEX/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Code Templates — Index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../70_Project_Documentation/Code_Templates/NPC_Miner_StateMachine_ECS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NPC Miner State Machine — Template
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../70_Project_Documentation/Code_Templates/Scoring_and_Feedback_ECS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scoring and Feedback — Template
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../70_Project_Documentation/Code_Templates/XRInput_Bridge_ECS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    XR Input Bridge → ECS (Template)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_9">
+        
+          
+          <label class="md-nav__link" for="__nav_14_9" id="__nav_14_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    GDD
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14_9">
+            <span class="md-nav__icon md-icon"></span>
+            GDD
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../70_Project_Documentation/GDD/VR_Mines_GDD/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VR Mines GDD
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_10">
+        
+          
+          <label class="md-nav__link" for="__nav_14_10" id="__nav_14_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    VR Coal Mining Simulator
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14_10">
+            <span class="md-nav__icon md-icon"></span>
+            VR Coal Mining Simulator
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../70_Project_Documentation/VR_Coal_Mining_Simulator/Backlog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Feature Backlog — VR Coal Mining Simulator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../70_Project_Documentation/VR_Coal_Mining_Simulator/DOTS_Migration_Runbook/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DOTS Migration Runbook
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../70_Project_Documentation/VR_Coal_Mining_Simulator/Design_Experience_Guidelines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Design Experience Guidelines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../70_Project_Documentation/VR_Coal_Mining_Simulator/External_Overview_Utilization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    External Overview and Utilization Plan
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../70_Project_Documentation/VR_Coal_Mining_Simulator/Gameplay_Spec/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gameplay Specification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../70_Project_Documentation/VR_Coal_Mining_Simulator/INDEX/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VR Coal Mining Simulator — Index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../70_Project_Documentation/VR_Coal_Mining_Simulator/Mechanics_Spec/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mechanics Specification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../70_Project_Documentation/VR_Coal_Mining_Simulator/Overview_Condensed/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VR Mines — Condensed Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../70_Project_Documentation/VR_Coal_Mining_Simulator/Systems_Analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VR Coal Mining Simulator — Systems Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../70_Project_Documentation/VR_Coal_Mining_Simulator/User_Journey_Flow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User Journey Flow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_10_11">
+        
+          
+          <label class="md-nav__link" for="__nav_14_10_11" id="__nav_14_10_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Features
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_14_10_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14_10_11">
+            <span class="md-nav__icon md-icon"></span>
+            Features
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../70_Project_Documentation/VR_Coal_Mining_Simulator/Features/Drill_System_DOTS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Drill System (DOTS/ECS)
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--in-progress"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_10_12">
+        
+          
+          <label class="md-nav__link" for="__nav_14_10_12" id="__nav_14_10_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Meetings
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_14_10_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14_10_12">
+            <span class="md-nav__icon md-icon"></span>
+            Meetings
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../70_Project_Documentation/VR_Coal_Mining_Simulator/Meetings/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Meetings
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../70_Project_Documentation/VR_Coal_Mining_Simulator/Meetings/2025-09-11_Minutes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Meeting Minutes — 2025-09-11
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15">
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    80 Research Notes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            80 Research Notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../80_Research_Notes/Coal_Mining_Workflow_and_Machines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Coal Mining Workflow and Machines — Research Summary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../80_Research_Notes/Comfort_and_Safety_Guidelines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Comfort &amp; Safety Guidelines (Quest 3)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../80_Research_Notes/Debrief_Rubric/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Debrief Rubric (Training Outcomes)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../80_Research_Notes/Game_Design_Fundamentals_Bible/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Game Design Fundamentals — Comprehensive Bible
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../80_Research_Notes/Gamification_Frameworks_Octalysis_Principles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gamification Frameworks for VR Training (Octalysis + Principles)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../80_Research_Notes/INDEX/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Research — Index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../80_Research_Notes/Interaction_Pattern_Library/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interaction Pattern Library (Quest 3)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../80_Research_Notes/MDA_and_Game_Design_Principles_for_VR/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MDA and Game Design Principles for VR Training
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../80_Research_Notes/VR_Immersion_Factors_Training_Simulations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VR Immersion Factors in Training Simulations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../80_Research_Notes/VR_Storytelling_and_Narrative_Design/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Storytelling &amp; Narrative Design for VR Training
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16">
+        
+          
+          <label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    90 Roadmap Updates
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16">
+            <span class="md-nav__icon md-icon"></span>
+            90 Roadmap Updates
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../90_Roadmap_Updates/90_Day_Master_Plan/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    90-Day Build Plan + Post-90 Polish
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../90_Roadmap_Updates/90_Day_Roadmap_Update_Week1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    90-Day Roadmap Update - Week 1
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--active"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../90_Roadmap_Updates/90_Day_VR_Miner_Roadmap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    90-Day Roadmap — VR Miner Training (Quest 3)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_17">
+        
+          
+          <label class="md-nav__link" for="__nav_17" id="__nav_17_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Publish
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_17">
+            <span class="md-nav__icon md-icon"></span>
+            Publish
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Publish/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VR Mines — Public Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Publish/Project_Directory_Index/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Project Directory Index (Public)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-folder-organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommended Folder Organization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-naming-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Naming Conventions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Project Naming Conventions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unity-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unity Projects
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scripts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prefabs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prefabs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-control-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Version Control Strategy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Version Control Strategy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-repository-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git Repository Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gitignore-for-unity-xr-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      .gitignore for Unity XR Projects
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Development Workflow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Development Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-project-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Project Creation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-version-control-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Version Control Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-development-cycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Development Cycle
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asset-organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Asset Organization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Asset Organization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scripts-folder-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scripts Folder Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prefabs-organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prefabs Organization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation Standards
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Documentation Standards">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Documentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Documentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learning-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Notes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-and-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build and Deployment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Build and Deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build Scripts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="xr-learning-project-structure">XR Learning Project Structure<a class="headerlink" href="#xr-learning-project-structure" title="Permanent link">¶</a></h1>
+<h2 id="recommended-folder-organization">Recommended Folder Organization<a class="headerlink" href="#recommended-folder-organization" title="Permanent link">¶</a></h2>
+<div class="highlight"><pre><span></span><code>Learning_XR/
+├── 01_Environment_Setup/
+│   ├── Unity_Projects/
+│   │   ├── XR_Setup_Test/
+│   │   └── Quest3_Connection_Test/
+│   ├── Documentation/
+│   │   ├── Setup_Notes.md
+│   │   └── Troubleshooting.md
+│   └── Resources/
+│       ├── Unity_Packages/
+│       └── Quest3_APKs/
+│
+├── 02_Beginner_Projects/
+│   ├── Hello_XR/
+│   │   ├── Assets/
+│   │   ├── Builds/
+│   │   └── README.md
+│   ├── VR_Gallery/
+│   ├── Physics_Playground/
+│   └── Audio_Experience/
+│
+├── 03_Intermediate_Projects/
+│   ├── VR_Workshop/
+│   ├── Puzzle_Room/
+│   ├── Music_Visualizer/
+│   └── Mini_Game_Collection/
+│
+├── 04_Advanced_Projects/
+│   ├── AI_Companion/
+│   ├── Procedural_World/
+│   ├── Multiplayer_Social/
+│   └── Educational_Experience/
+│
+├── 05_Production_Projects/
+│   ├── Portfolio_Project/
+│   ├── Commercial_App/
+│   └── Open_Source_Contribution/
+│
+├── Resources/
+│   ├── Scripts/
+│   │   ├── Interaction/
+│   │   ├── UI/
+│   │   ├── Audio/
+│   │   └── AI/
+│   ├── Prefabs/
+│   ├── Materials/
+│   ├── Audio/
+│   └── Models/
+│
+├── Documentation/
+│   ├── Learning_Notes/
+│   ├── Code_Snippets/
+│   ├── Performance_Notes/
+│   └── Deployment_Logs/
+│
+├── 60_Devlog_Content/
+│   ├── YouTube_Scripts/
+│   ├── Livestream_Notes/
+│   ├── Social_Media_Content/
+│   └── Video_Assets/
+│
+├── 70_Project_Documentation/
+│   ├── VR_Coal_Mining_Simulator/
+│   │   ├── Features/
+│   │   ├── Technical_Specs/
+│   │   ├── User_Stories/
+│   │   └── Testing_Protocols/
+│   └── Other_Projects/
+│
+├── 80_Research_Notes/
+│   ├── VR_Immersion_Research/
+│   ├── Training_Effectiveness/
+│   ├── Safety_Protocols/
+│   └── User_Experience_Studies/
+│
+└── 90_Roadmap_Updates/
+    ├── Weekly_Updates/
+    ├── Monthly_Reviews/
+    ├── Milestone_Reports/
+    └── Performance_Metrics/
+│
+└── Tools/
+    ├── Build_Scripts/
+    ├── Performance_Tools/
+    └── Testing_Utilities/
+</code></pre></div>
+<h2 id="project-naming-conventions">Project Naming Conventions<a class="headerlink" href="#project-naming-conventions" title="Permanent link">¶</a></h2>
+<h3 id="unity-projects">Unity Projects<a class="headerlink" href="#unity-projects" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>Format</strong>: <code>ProjectName_Version</code></li>
+<li><strong>Examples</strong>: </li>
+<li><code>Hello_XR_v1.0</code></li>
+<li><code>VR_Workshop_v2.1</code></li>
+<li><code>AI_Companion_v1.0</code></li>
+</ul>
+<h3 id="scripts">Scripts<a class="headerlink" href="#scripts" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>Format</strong>: <code>DescriptiveName.cs</code></li>
+<li><strong>Examples</strong>:</li>
+<li><code>XRInteractionHandler.cs</code></li>
+<li><code>HandGestureRecognizer.cs</code></li>
+<li><code>AIConversationManager.cs</code></li>
+</ul>
+<h3 id="prefabs">Prefabs<a class="headerlink" href="#prefabs" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>Format</strong>: <code>Type_DescriptiveName</code></li>
+<li><strong>Examples</strong>:</li>
+<li><code>UI_RadialMenu</code></li>
+<li><code>Interactable_Door</code></li>
+<li><code>AI_CompanionCharacter</code></li>
+</ul>
+<h3 id="scenes">Scenes<a class="headerlink" href="#scenes" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>Format</strong>: <code>ProjectName_SceneName</code></li>
+<li><strong>Examples</strong>:</li>
+<li><code>Hello_XR_MainScene</code></li>
+<li><code>VR_Workshop_ToolSelection</code></li>
+<li><code>AI_Companion_Conversation</code></li>
+</ul>
+<h2 id="version-control-strategy">Version Control Strategy<a class="headerlink" href="#version-control-strategy" title="Permanent link">¶</a></h2>
+<h3 id="git-repository-structure">Git Repository Structure<a class="headerlink" href="#git-repository-structure" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code>Learning_XR/
+├── .gitignore
+├── README.md
+├── .gitattributes
+└── Projects/
+    ├── 01_Environment_Setup/
+    ├── 02_Beginner_Projects/
+    ├── 03_Intermediate_Projects/
+    ├── 04_Advanced_Projects/
+    └── 05_Production_Projects/
+</code></pre></div>
+<h3 id="gitignore-for-unity-xr-projects">.gitignore for Unity XR Projects<a class="headerlink" href="#gitignore-for-unity-xr-projects" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code># Unity generated files
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+
+# MemoryCaptures can get excessive in size
+[Mm]emoryCaptures/
+
+# Asset meta data should only be ignored when the corresponding asset is also ignored
+!/[Aa]ssets/**/*.meta
+
+# Uncomment this line if you wish to ignore the asset store tools plugin
+# /[Aa]ssets/AssetStoreTools*
+
+# Autogenerated Jetbrains Rider plugin
+/[Aa]ssets/Plugins/Editor/JetBrains*
+
+# Visual Studio cache directory
+.vs/
+
+# Gradle cache directory
+.gradle/
+
+# Autogenerated VS/MD/Consulo solution and project files
+ExportedObj/
+.consulo/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Unity3D generated meta files
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# Unity3D generated file on crash reports
+sysinfo.txt
+
+# Builds
+*.apk
+*.aab
+*.ipa
+*.app
+
+# Crashlytics generated file
+crashlytics-build.properties
+
+# Packed Addressables
+/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
+
+# Temporary auto-generated Android Assets
+/[Aa]ssets/[Ss]treamingAssets/aa.meta
+/[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# XR specific
+/[Aa]ssets/XR/
+/[Aa]ssets/Oculus/
+/[Aa]ssets/Meta/
+</code></pre></div>
+<h2 id="development-workflow">Development Workflow<a class="headerlink" href="#development-workflow" title="Permanent link">¶</a></h2>
+<h3 id="1-project-creation">1. Project Creation<a class="headerlink" href="#1-project-creation" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create new Unity project</span>
+mkdir<span class="w"> </span><span class="s2">"02_Beginner_Projects/Hello_XR"</span>
+<span class="nb">cd</span><span class="w"> </span><span class="s2">"02_Beginner_Projects/Hello_XR"</span>
+<span class="c1"># Open Unity Hub and create new project</span>
+</code></pre></div>
+<h3 id="2-version-control-setup">2. Version Control Setup<a class="headerlink" href="#2-version-control-setup" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Initialize git repository</span>
+git<span class="w"> </span>init
+git<span class="w"> </span>add<span class="w"> </span>.gitignore
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Initial commit with .gitignore"</span>
+
+<span class="c1"># Add project files</span>
+git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Add Hello XR project files"</span>
+</code></pre></div>
+<h3 id="3-development-cycle">3. Development Cycle<a class="headerlink" href="#3-development-cycle" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Daily development</span>
+git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Add hand tracking implementation"</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main
+
+<span class="c1"># Feature development</span>
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/gesture-recognition
+<span class="c1"># ... develop feature ...</span>
+git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Implement gesture recognition system"</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>feature/gesture-recognition
+</code></pre></div>
+<h2 id="asset-organization">Asset Organization<a class="headerlink" href="#asset-organization" title="Permanent link">¶</a></h2>
+<h3 id="scripts-folder-structure">Scripts Folder Structure<a class="headerlink" href="#scripts-folder-structure" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code>Scripts/
+├── Core/
+│   ├── XRManager.cs
+│   ├── GameManager.cs
+│   └── SceneManager.cs
+├── Interaction/
+│   ├── XRInteractionHandler.cs
+│   ├── HandGestureRecognizer.cs
+│   └── ObjectGrabber.cs
+├── UI/
+│   ├── VRMenuSystem.cs
+│   ├── RadialMenu.cs
+│   └── UIFollowCamera.cs
+├── Audio/
+│   ├── SpatialAudioManager.cs
+│   ├── AudioAnalyzer.cs
+│   └── VoiceRecognition.cs
+├── AI/
+│   ├── AIConversationManager.cs
+│   ├── MLModelManager.cs
+│   └── ProceduralContentGenerator.cs
+└── Utilities/
+    ├── PerformanceMonitor.cs
+    ├── DebugLogger.cs
+    └── BuildOptimizer.cs
+</code></pre></div>
+<h3 id="prefabs-organization">Prefabs Organization<a class="headerlink" href="#prefabs-organization" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code>Prefabs/
+├── XR/
+│   ├── XR_Origin.prefab
+│   ├── Hand_Controller.prefab
+│   └── Teleportation_Area.prefab
+├── UI/
+│   ├── UI_RadialMenu.prefab
+│   ├── UI_WorldSpaceCanvas.prefab
+│   └── UI_InteractionPrompt.prefab
+├── Interactables/
+│   ├── Interactable_Door.prefab
+│   ├── Interactable_Button.prefab
+│   └── Interactable_Grabbable.prefab
+└── AI/
+    ├── AI_Companion.prefab
+    ├── AI_NPC.prefab
+    └── AI_ConversationUI.prefab
+</code></pre></div>
+<h2 id="documentation-standards">Documentation Standards<a class="headerlink" href="#documentation-standards" title="Permanent link">¶</a></h2>
+<h3 id="code-documentation">Code Documentation<a class="headerlink" href="#code-documentation" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">/// &lt;summary&gt;</span>
+<span class="c1">/// Handles XR interaction events and manages object grabbing mechanics.</span>
+<span class="c1">/// Supports both hand tracking and controller input methods.</span>
+<span class="c1">/// &lt;/summary&gt;</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">XRInteractionHandler</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">    </span><span class="c1">/// Maximum distance for interaction in meters.</span>
+<span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">    </span><span class="na">[SerializeField]</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">interactionDistance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.1f</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">/// &lt;summary&gt;</span>
+<span class="w">    </span><span class="c1">/// Called when an object is successfully grabbed.</span>
+<span class="w">    </span><span class="c1">/// &lt;/summary&gt;</span>
+<span class="w">    </span><span class="c1">/// &lt;param name="grabbedObject"&gt;The object that was grabbed&lt;/param&gt;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnObjectGrabbed</span><span class="p">(</span><span class="n">GameObject</span><span class="w"> </span><span class="n">grabbedObject</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Implementation</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="project-documentation">Project Documentation<a class="headerlink" href="#project-documentation" title="Permanent link">¶</a></h3>
+<p>Each project should include:
+- <strong>README.md</strong>: Project overview and setup instructions
+- <strong>CHANGELOG.md</strong>: Version history and changes
+- <strong>CONTRIBUTING.md</strong>: Guidelines for contributions
+- <strong>LICENSE</strong>: Project license information</p>
+<h3 id="learning-notes">Learning Notes<a class="headerlink" href="#learning-notes" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code>Documentation/
+├── Learning_Notes/
+│   ├── Week1_HandTracking.md
+│   ├── Week2_Teleportation.md
+│   └── Week3_PhysicsInteractions.md
+├── Code_Snippets/
+│   ├── HandTracking_Examples.cs
+│   ├── UI_Interaction_Patterns.cs
+│   └── AI_Integration_Examples.cs
+└── Performance_Notes/
+    ├── Quest3_Optimization.md
+    ├── Memory_Management.md
+    └── Rendering_Optimization.md
+</code></pre></div>
+<h2 id="build-and-deployment">Build and Deployment<a class="headerlink" href="#build-and-deployment" title="Permanent link">¶</a></h2>
+<h3 id="build-scripts">Build Scripts<a class="headerlink" href="#build-scripts" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code>Tools/
+├── Build_Scripts/
+│   ├── BuildQuest3.bat
+│   ├── BuildQuest3.sh
+│   └── DeployToDevice.bat
+├── Performance_Tools/
+│   ├── PerformanceProfiler.cs
+│   ├── MemoryAnalyzer.cs
+│   └── FrameRateMonitor.cs
+└── Testing_Utilities/
+    ├── AutomatedTester.cs
+    ├── ComfortTester.cs
+    └── PerformanceTester.cs
+</code></pre></div>
+<h3 id="build-configuration">Build Configuration<a class="headerlink" href="#build-configuration" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// BuildConfiguration.cs</span>
+<span class="na">[CreateAssetMenu(fileName = "BuildConfig", menuName = "XR/Build Configuration")]</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">BuildConfiguration</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ScriptableObject</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="na">[Header("Quest 3 Settings")]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">productName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"XR Learning App"</span><span class="p">;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">packageName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"com.yourname.xrlearning"</span><span class="p">;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">targetFrameRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">72</span><span class="p">;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">enableFoveatedRendering</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+
+<span class="w">    </span><span class="na">[Header("Build Settings")]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">BuildTarget</span><span class="w"> </span><span class="n">buildTarget</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BuildTarget</span><span class="p">.</span><span class="n">Android</span><span class="p">;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">AndroidArchitecture</span><span class="w"> </span><span class="n">targetArchitecture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AndroidArchitecture</span><span class="p">.</span><span class="n">ARM64</span><span class="p">;</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">ScriptingImplementation</span><span class="w"> </span><span class="n">scriptingBackend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ScriptingImplementation</span><span class="p">.</span><span class="n">IL2CPP</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>This structure will help you stay organized as you progress through your XR learning journey. Each project builds upon the previous ones, and the documentation will help you track your progress and learnings!</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/thatGuyPdeep" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/@prabhakardeep" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "content.code.copy", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a7c05c9e.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
