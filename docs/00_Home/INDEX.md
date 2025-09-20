@@ -38,6 +38,9 @@
 - **Public Website**: [https://thatGuyPdeep.github.io/quartz/](https://thatGuyPdeep.github.io/quartz/)
 - **GitHub Repository**: [https://github.com/thatGuyPdeep/quartz](https://github.com/thatGuyPdeep/quartz)
 
+## 🔗 Visual Graph
+- [[./Graph_Overview|Interactive Graph Overview]]
+
 ## 📱 Connect
 - **Email**: [thatguypdeep@gmail.com](mailto:thatguypdeep@gmail.com)
 - **LinkedIn**: [@prabhakar-deep](https://www.linkedin.com/in/prabhakar-deep)
