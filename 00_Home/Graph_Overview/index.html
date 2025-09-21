@@ -19,7 +19,7 @@
     
     
       
-        <title>Graph Overview — VR Mines - VR Mines — Obsidian Second Brain</title>
+        <title>Graph Overview - VR Mines — Obsidian Second Brain</title>
       
     
     
@@ -41,6 +41,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../assets/ui/graph-pane.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -71,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#graph-overview-vr-mines" class="md-skip">
+        <a href="#graph-overview" class="md-skip">
           Skip to content
         </a>
       
@@ -105,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Graph Overview — VR Mines
+              Graph Overview
             
           </span>
         </div>
@@ -763,86 +765,15 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Graph Overview — VR Mines
-  </span>
-  
-    
-  
-  
-    <span class="md-status md-status--active"></span>
-  
-
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    Graph Overview — VR Mines
+    Graph Overview
   </span>
-  
-    
-  
-  
-    <span class="md-status md-status--active"></span>
-  
-
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#network-concept-map" class="md-nav__link">
-    <span class="md-ellipsis">
-      Network (Concept Map)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mindmap-modules" class="md-nav__link">
-    <span class="md-ellipsis">
-      Mindmap (Modules)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pie-effort-allocation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pie — Effort Allocation
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -3073,41 +3004,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#network-concept-map" class="md-nav__link">
-    <span class="md-ellipsis">
-      Network (Concept Map)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mindmap-modules" class="md-nav__link">
-    <span class="md-ellipsis">
-      Mindmap (Modules)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pie-effort-allocation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pie — Effort Allocation
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -3121,6 +3017,44 @@
                   
 
 
+<h1 id="graph-overview">Graph Overview<a class="headerlink" href="#graph-overview" title="Permanent link">¶</a></h1>
+<p>This interactive graph shows pages and their wiki-link connections. Click nodes to navigate.</p>
+<div id="graph" style="height:70vh;"></div>
+
+<script>
+async function draw() {
+  const container = document.getElementById('graph');
+  const resp = await fetch('/quartz/assets/graph/graph.json');
+  const data = await resp.json();
+
+  // fallback: render minimal force layout with d3 if available
+  const script = document.createElement('script');
+  script.src = 'https://cdn.jsdelivr.net/npm/force-graph@1.44.0/dist/force-graph.min.js';
+  script.onload = () => {
+    const Graph = ForceGraph()(container)
+      .graphData({
+        nodes: data.nodes.map(n => ({ id: n.id, name: n.label, path: n.path })),
+        links: data.edges.map(e => ({ source: e.from, target: e.to }))
+      })
+      .nodeLabel(n => n.name)
+      .onNodeClick(n => {
+        if (n.path) window.location.href = '/' + 'quartz/' + n.path;
+      })
+      .linkDirectionalParticles(0)
+      .nodeRelSize(6);
+  };
+  document.body.appendChild(script);
+}
+draw();
+</script>
+
+<hr>
+<p>uid: graph-overview
+project: VR Mines
+status: active
+updated: 2025-09-15
+tags: [graph]</p>
+<hr>
 <h1 id="graph-overview-vr-mines">Graph Overview — VR Mines<a class="headerlink" href="#graph-overview-vr-mines" title="Permanent link">¶</a></h1>
 <h2 id="network-concept-map">Network (Concept Map)<a class="headerlink" href="#network-concept-map" title="Permanent link">¶</a></h2>
 <div class="highlight"><pre><span></span><code>graph TD
@@ -3238,6 +3172,8 @@
     
     
       <script src="../../assets/javascripts/bundle.a7c05c9e.min.js"></script>
+      
+        <script src="../../assets/ui/graph-pane.js"></script>
       
     
   
