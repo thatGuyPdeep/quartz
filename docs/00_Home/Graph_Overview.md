@@ -14,8 +14,23 @@ This interactive graph shows pages and their wiki-link connections. Click nodes 
 <script>
 async function draw() {
   const container = document.getElementById('graph');
-  const resp = await fetch('/quartz/assets/graph/graph.json');
-  const data = await resp.json();
+  async function loadGraph() {
+    const base = location.pathname.startsWith('/quartz/') ? '/quartz/' : '/';
+    const candidates = [
+      base + 'assets/graph/graph.json',
+      'assets/graph/graph.json',
+      (location.pathname.replace(/[^\/]+\/?$/, '')) + 'assets/graph/graph.json'
+    ];
+    for (const url of candidates) {
+      try {
+        const r = await fetch(url, { cache: 'no-store' });
+        if (r.ok) return await r.json();
+      } catch (e) {}
+    }
+    return { nodes: [], edges: [] };
+  }
+
+  const data = await loadGraph();
 
   // fallback: render minimal force layout with d3 if available
   const script = document.createElement('script');

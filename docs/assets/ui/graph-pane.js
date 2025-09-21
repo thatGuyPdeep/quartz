@@ -11,13 +11,21 @@
   }
 
   async function loadGraph() {
-    try {
-      const resp = await fetch(BASE + 'assets/graph/graph.json');
-      return await resp.json();
-    } catch (e) {
-      console.warn('Graph load failed', e);
-      return null;
+    const candidates = [
+      BASE + 'assets/graph/graph.json',
+      'assets/graph/graph.json',
+      (location.pathname.replace(/[^\/]+\/?$/, '')) + 'assets/graph/graph.json'
+    ];
+    for (const url of candidates) {
+      try {
+        const resp = await fetch(url, { cache: 'no-store' });
+        if (resp.ok) return await resp.json();
+      } catch (e) {
+        // try next
+      }
     }
+    console.warn('Graph json not found via candidates');
+    return null;
   }
 
   function currentPageId(nodes) {
