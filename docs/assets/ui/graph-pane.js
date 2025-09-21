@@ -51,6 +51,50 @@
   function renderGraph(data) {
     const container = document.getElementById('vrmines-graph-canvas');
     if (!container) return;
+    // Add toggle button
+    if (!document.getElementById('vrmines-graph-toggle')) {
+      const btn = document.createElement('button');
+      btn.id = 'vrmines-graph-toggle';
+      const setLabel = () => btn.textContent = document.body.classList.contains('vrmines-graph-collapsed') ? 'Show Graph' : 'Hide Graph';
+      btn.addEventListener('click', () => {
+        document.body.classList.toggle('vrmines-graph-collapsed');
+        setLabel();
+        window.dispatchEvent(new Event('resize'));
+      });
+      setLabel();
+      document.body.appendChild(btn);
+    }
+
+    // Resizer drag behavior
+    const pane = document.getElementById('vrmines-graph-pane');
+    let dragging = false;
+    const onDown = (e) => {
+      if (!pane) return;
+      const x = e.clientX || (e.touches && e.touches[0]?.clientX);
+      if (!x) return;
+      // if near left edge of the pane (10px resizer)
+      const rect = pane.getBoundingClientRect();
+      if (Math.abs(x - rect.left) <= 10) {
+        dragging = true;
+        e.preventDefault();
+      }
+    };
+    const onMove = (e) => {
+      if (!dragging || !pane) return;
+      const x = e.clientX || (e.touches && e.touches[0]?.clientX);
+      if (!x) return;
+      const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+      const newW = Math.min(Math.max(vw - x, 260), Math.floor(vw * 0.5)); // clamp between 260px and 50vw
+      document.documentElement.style.setProperty('--vr-graph-w', newW + 'px');
+      window.dispatchEvent(new Event('resize'));
+    };
+    const onUp = () => { dragging = false; };
+    document.addEventListener('mousedown', onDown);
+    document.addEventListener('mousemove', onMove);
+    document.addEventListener('mouseup', onUp);
+    document.addEventListener('touchstart', onDown, { passive: false });
+    document.addEventListener('touchmove', onMove, { passive: false });
+    document.addEventListener('touchend', onUp);
     const script = document.createElement('script');
     script.src = 'https://cdn.jsdelivr.net/npm/force-graph@1.44.0/dist/force-graph.min.js';
     script.onload = () => {

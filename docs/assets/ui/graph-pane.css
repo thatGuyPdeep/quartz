@@ -1,9 +1,13 @@
+:root {
+  --vr-graph-w: 28vw;
+}
+
 #vrmines-graph-pane {
   position: fixed;
   top: 0;
   right: 0;
   height: 100vh;
-  width: 28vw;
+  width: var(--vr-graph-w);
   min-width: 320px;
   z-index: 10;
   background: var(--bg, #0b0f14);
@@ -15,8 +19,52 @@
   height: 100%;
 }
 
+/* Drag resizer */
+#vrmines-graph-pane::before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: 0;
+  width: 10px;
+  height: 100%;
+  cursor: col-resize;
+  z-index: 11;
+}
+
+/* Toggle button */
+#vrmines-graph-toggle {
+  position: fixed;
+  right: calc(var(--vr-graph-w) + 8px);
+  top: 72px;
+  z-index: 11;
+  background: var(--light, #13202e);
+  color: var(--dark, #cfd6df);
+  border: 1px solid var(--lightgray, #2a2f3a);
+  border-radius: 4px;
+  padding: 4px 6px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+/* Shift content so it isn't blocked */
+body.vrmines-graph-active .md-main {
+  margin-right: var(--vr-graph-w);
+}
+
+/* Collapsed state */
+body.vrmines-graph-collapsed #vrmines-graph-pane {
+  display: none;
+}
+body.vrmines-graph-collapsed .md-main {
+  margin-right: 0;
+}
+body.vrmines-graph-collapsed #vrmines-graph-toggle {
+  right: 8px;
+}
+
 @media (max-width: 1100px) {
   #vrmines-graph-pane { display: none; }
+  #vrmines-graph-toggle { right: 8px; }
 }
 
 
