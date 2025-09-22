@@ -11,13 +11,21 @@
   }
 
   async function loadGraph() {
-    try {
-      const resp = await fetch(BASE + 'assets/graph/graph.json');
-      return await resp.json();
-    } catch (e) {
-      console.warn('Graph load failed', e);
-      return null;
+    const candidates = [
+      BASE + 'assets/graph/graph.json',
+      'assets/graph/graph.json',
+      (location.pathname.replace(/[^\/]+\/?$/, '')) + 'assets/graph/graph.json'
+    ];
+    for (const url of candidates) {
+      try {
+        const resp = await fetch(url, { cache: 'no-store' });
+        if (resp.ok) return await resp.json();
+      } catch (e) {
+        // try next
+      }
     }
+    console.warn('Graph json not found via candidates');
+    return null;
   }
 
   function currentPageId(nodes) {
@@ -43,6 +51,56 @@
   function renderGraph(data) {
     const container = document.getElementById('vrmines-graph-canvas');
     if (!container) return;
+    
+    // Add toggle button with improved styling
+    if (!document.getElementById('vrmines-graph-toggle')) {
+      const btn = document.createElement('button');
+      btn.id = 'vrmines-graph-toggle';
+      btn.innerHTML = '📊';
+      btn.title = 'Toggle Graph View';
+      const setLabel = () => {
+        btn.innerHTML = document.body.classList.contains('vrmines-graph-collapsed') ? '📊' : '✕';
+        btn.title = document.body.classList.contains('vrmines-graph-collapsed') ? 'Show Graph' : 'Hide Graph';
+      };
+      btn.addEventListener('click', () => {
+        document.body.classList.toggle('vrmines-graph-collapsed');
+        setLabel();
+        window.dispatchEvent(new Event('resize'));
+      });
+      setLabel();
+      document.body.appendChild(btn);
+    }
+
+    // Resizer drag behavior
+    const pane = document.getElementById('vrmines-graph-pane');
+    let dragging = false;
+    const onDown = (e) => {
+      if (!pane) return;
+      const x = e.clientX || (e.touches && e.touches[0]?.clientX);
+      if (!x) return;
+      // if near left edge of the pane (10px resizer)
+      const rect = pane.getBoundingClientRect();
+      if (Math.abs(x - rect.left) <= 10) {
+        dragging = true;
+        e.preventDefault();
+      }
+    };
+    const onMove = (e) => {
+      if (!dragging || !pane) return;
+      const x = e.clientX || (e.touches && e.touches[0]?.clientX);
+      if (!x) return;
+      const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+      const newW = Math.min(Math.max(vw - x, 280), Math.floor(vw * 0.4)); // clamp between 280px and 40vw
+      document.documentElement.style.setProperty('--vr-graph-w', newW + 'px');
+      window.dispatchEvent(new Event('resize'));
+    };
+    const onUp = () => { dragging = false; };
+    document.addEventListener('mousedown', onDown);
+    document.addEventListener('mousemove', onMove);
+    document.addEventListener('mouseup', onUp);
+    document.addEventListener('touchstart', onDown, { passive: false });
+    document.addEventListener('touchmove', onMove, { passive: false });
+    document.addEventListener('touchend', onUp);
     const script = document.createElement('script');
     script.src = 'https://cdn.jsdelivr.net/npm/force-graph@1.44.0/dist/force-graph.min.js';
     script.onload = () => {
@@ -53,23 +111,79 @@
 
       const fg = ForceGraph()(container)
         .graphData({ nodes, links })
-        .nodeLabel(n => n.name)
+        .nodeLabel(n => `${n.name}\n${n.path || ''}`)
         .nodeCanvasObject((n, ctx, scale) => {
-          const r = (n.id === center) ? 6 : (neighbors.has(n.id) ? 4.5 : 3);
+          // Enhanced node sizing based on guidelines
+          const connectionCount = links.filter(l => l.source.id === n.id || l.target.id === n.id).length;
+          const isCurrent = n.id === center;
+          const isNeighbor = neighbors.has(n.id);
+          
+          let radius;
+          if (isCurrent) radius = 8;
+          else if (isNeighbor) radius = 6;
+          else if (connectionCount > 5) radius = 5;
+          else if (connectionCount > 2) radius = 4;
+          else radius = 3;
+          
+          // Enhanced visual design
           ctx.beginPath();
-          ctx.arc(n.x, n.y, r, 0, 2 * Math.PI, false);
-          ctx.fillStyle = (n.id === center) ? '#ffcc00' : (neighbors.has(n.id) ? '#66ccff' : '#8899aa');
+          ctx.arc(n.x, n.y, radius, 0, 2 * Math.PI, false);
+          
+          // Color coding based on guidelines
+          if (isCurrent) {
+            ctx.fillStyle = '#ffcc00';
+            ctx.strokeStyle = '#ffaa00';
+            ctx.lineWidth = 2;
+          } else if (isNeighbor) {
+            ctx.fillStyle = '#66ccff';
+            ctx.strokeStyle = '#44aaff';
+            ctx.lineWidth = 1.5;
+          } else if (connectionCount > 2) {
+            ctx.fillStyle = '#8899aa';
+            ctx.strokeStyle = '#667788';
+            ctx.lineWidth = 1;
+          } else {
+            ctx.fillStyle = '#556677';
+            ctx.strokeStyle = '#445566';
+            ctx.lineWidth = 0.5;
+          }
+          
           ctx.fill();
+          ctx.stroke();
+          
+          // Add glow effect for current node
+          if (isCurrent) {
+            ctx.shadowColor = '#ffcc00';
+            ctx.shadowBlur = 8;
+            ctx.beginPath();
+            ctx.arc(n.x, n.y, radius + 2, 0, 2 * Math.PI, false);
+            ctx.stroke();
+            ctx.shadowBlur = 0;
+          }
         })
-        .linkColor(l => (l.source.id === center || l.target.id === center) ? '#66ccff' : 'rgba(136,153,170,0.4)')
+        .linkColor(l => {
+          const isConnected = l.source.id === center || l.target.id === center;
+          return isConnected ? 'rgba(102, 204, 255, 0.6)' : 'rgba(136, 153, 170, 0.3)';
+        })
+        .linkWidth(l => {
+          const isConnected = l.source.id === center || l.target.id === center;
+          return isConnected ? 2 : 1;
+        })
         .onNodeClick(n => {
           if (n.path) window.location.href = BASE + n.path;
+        })
+        .onNodeHover(n => {
+          container.style.cursor = n ? 'pointer' : 'default';
         })
         .width(container.clientWidth)
         .height(container.clientHeight)
         .linkDirectionalParticles(0)
         .cooldownTicks(120)
-        .d3VelocityDecay(0.3);
+        .d3VelocityDecay(0.4)
+        .d3AlphaDecay(0.02)
+        .d3AlphaMin(0.01)
+        .linkDistance(100)
+        .chargeStrength(-400);
 
       const onResize = () => {
         fg.width(container.clientWidth);
@@ -80,8 +194,44 @@
     document.body.appendChild(script);
   }
 
+  // Auto-resize functionality
+  function setupAutoResize() {
+    let resizeTimeout;
+    const handleResize = () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        const pane = document.getElementById('vrmines-graph-pane');
+        const main = document.querySelector('.md-main');
+        const content = document.querySelector('.md-content');
+        
+        if (pane && main) {
+          const paneWidth = pane.offsetWidth;
+          const viewportWidth = window.innerWidth;
+          const minContentWidth = 400;
+          const availableWidth = viewportWidth - paneWidth;
+          
+          // Ensure content never gets too narrow
+          if (availableWidth < minContentWidth) {
+            const newPaneWidth = viewportWidth - minContentWidth;
+            pane.style.width = Math.max(280, newPaneWidth) + 'px';
+          }
+          
+          // Update CSS custom properties
+          document.documentElement.style.setProperty('--vr-graph-w', paneWidth + 'px');
+          
+          // Trigger graph resize if it exists
+          window.dispatchEvent(new Event('graph-resize'));
+        }
+      }, 100);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Initial call
+  }
+
   async function init() {
     const pane = ensurePane();
+    setupAutoResize();
     const data = await loadGraph();
     if (data) renderGraph(data);
   }

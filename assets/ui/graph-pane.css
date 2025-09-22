@@ -1,22 +1,136 @@
+:root {
+  --vr-graph-w: 25vw;
+  --vr-graph-min-w: 280px;
+  --vr-graph-max-w: 400px;
+  --content-min-w: 60vw;
+}
+
 #vrmines-graph-pane {
   position: fixed;
   top: 0;
   right: 0;
   height: 100vh;
-  width: 28vw;
-  min-width: 320px;
+  width: clamp(var(--vr-graph-min-w), var(--vr-graph-w), var(--vr-graph-max-w));
   z-index: 10;
   background: var(--bg, #0b0f14);
   border-left: 1px solid var(--lightgray, #2a2f3a);
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
 }
 
 #vrmines-graph-canvas {
   width: 100%;
   height: 100%;
+  background: linear-gradient(135deg, #0b0f14 0%, #1a1f2e 100%);
+  cursor: grab;
 }
 
-@media (max-width: 1100px) {
-  #vrmines-graph-pane { display: none; }
+#vrmines-graph-canvas:active {
+  cursor: grabbing;
+}
+
+/* Graph loading state */
+#vrmines-graph-canvas.loading {
+  background: linear-gradient(135deg, #0b0f14 0%, #1a1f2e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8899aa;
+  font-size: 14px;
+}
+
+#vrmines-graph-canvas.loading::before {
+  content: "Loading knowledge graph...";
+}
+
+/* Drag resizer */
+#vrmines-graph-pane::before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: 0;
+  width: 10px;
+  height: 100%;
+  cursor: col-resize;
+  z-index: 11;
+}
+
+/* Toggle button */
+#vrmines-graph-toggle {
+  position: fixed;
+  right: calc(var(--vr-graph-w) + 8px);
+  top: 72px;
+  z-index: 11;
+  background: var(--light, #13202e);
+  color: var(--dark, #cfd6df);
+  border: 1px solid var(--lightgray, #2a2f3a);
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#vrmines-graph-toggle:hover {
+  background: var(--lightgray, #2a2f3a);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+#vrmines-graph-toggle:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Shift content so it isn't blocked */
+body.vrmines-graph-active .md-main {
+  margin-right: clamp(var(--vr-graph-min-w), var(--vr-graph-w), var(--vr-graph-max-w));
+  min-width: var(--content-min-w);
+}
+
+/* Ensure content is never too narrow */
+body.vrmines-graph-active .md-content {
+  min-width: 400px;
+}
+
+/* Collapsed state */
+body.vrmines-graph-collapsed #vrmines-graph-pane {
+  display: none;
+}
+body.vrmines-graph-collapsed .md-main {
+  margin-right: 0;
+}
+body.vrmines-graph-collapsed #vrmines-graph-toggle {
+  right: 8px;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 1200px) {
+  :root {
+    --vr-graph-w: 20vw;
+  }
+}
+
+@media (max-width: 1000px) {
+  :root {
+    --vr-graph-w: 15vw;
+  }
+  #vrmines-graph-pane {
+    min-width: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  #vrmines-graph-pane { 
+    display: none; 
+  }
+  #vrmines-graph-toggle { 
+    right: 8px; 
+  }
+  body.vrmines-graph-active .md-main {
+    margin-right: 0;
+  }
 }
 
 
