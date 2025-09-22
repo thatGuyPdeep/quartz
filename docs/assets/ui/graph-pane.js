@@ -63,7 +63,10 @@
         btn.title = document.body.classList.contains('vrmines-graph-collapsed') ? 'Show Graph' : 'Hide Graph';
       };
       btn.addEventListener('click', () => {
-        document.body.classList.toggle('vrmines-graph-collapsed');
+        const collapsed = document.body.classList.toggle('vrmines-graph-collapsed');
+        if (!collapsed) {
+          document.body.classList.add('vrmines-graph-active');
+        }
         setLabel();
         window.dispatchEvent(new Event('resize'));
       });
@@ -178,12 +181,24 @@
         .width(container.clientWidth)
         .height(container.clientHeight)
         .linkDirectionalParticles(0)
-        .cooldownTicks(120)
-        .d3VelocityDecay(0.4)
-        .d3AlphaDecay(0.02)
-        .d3AlphaMin(0.01)
-        .linkDistance(100)
-        .chargeStrength(-400);
+        .cooldownTicks(120);
+
+      // Use supported d3Force API for link distance and charge strength
+      try {
+        const linkForce = fg.d3Force('link');
+        if (linkForce && typeof linkForce.distance === 'function') {
+          linkForce.distance(100);
+        }
+        const chargeForce = fg.d3Force('charge');
+        if (chargeForce && typeof chargeForce.strength === 'function') {
+          chargeForce.strength(-400);
+        }
+        if (typeof fg.d3VelocityDecay === 'function') fg.d3VelocityDecay(0.4);
+        if (typeof fg.d3AlphaDecay === 'function') fg.d3AlphaDecay(0.02);
+        if (typeof fg.d3AlphaMin === 'function') fg.d3AlphaMin(0.01);
+      } catch (e) {
+        // no-op if API differs
+      }
 
       const onResize = () => {
         fg.width(container.clientWidth);
@@ -231,6 +246,8 @@
 
   async function init() {
     const pane = ensurePane();
+    // Mark layout as active so CSS shifts content
+    document.body.classList.add('vrmines-graph-active');
     setupAutoResize();
     const data = await loadGraph();
     if (data) renderGraph(data);
