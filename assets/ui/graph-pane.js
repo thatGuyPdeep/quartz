@@ -63,7 +63,11 @@
         btn.title = document.body.classList.contains('vrmines-graph-collapsed') ? 'Show Graph' : 'Hide Graph';
       };
       btn.addEventListener('click', () => {
-        document.body.classList.toggle('vrmines-graph-collapsed');
+        const collapsed = document.body.classList.toggle('vrmines-graph-collapsed');
+        if (!collapsed) {
+          document.body.classList.add('vrmines-graph-active');
+        }
+        try { localStorage.setItem('vrGraphCollapsed', String(collapsed)); } catch {}
         setLabel();
         window.dispatchEvent(new Event('resize'));
       });
@@ -92,6 +96,7 @@
       const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
       const newW = Math.min(Math.max(vw - x, 280), Math.floor(vw * 0.4)); // clamp between 280px and 40vw
       document.documentElement.style.setProperty('--vr-graph-w', newW + 'px');
+      try { localStorage.setItem('vrGraphW', String(newW)); } catch {}
       window.dispatchEvent(new Event('resize'));
     };
     const onUp = () => { dragging = false; };
@@ -178,12 +183,24 @@
         .width(container.clientWidth)
         .height(container.clientHeight)
         .linkDirectionalParticles(0)
-        .cooldownTicks(120)
-        .d3VelocityDecay(0.4)
-        .d3AlphaDecay(0.02)
-        .d3AlphaMin(0.01)
-        .linkDistance(100)
-        .chargeStrength(-400);
+        .cooldownTicks(120);
+
+      // Use supported d3Force API for link distance and charge strength
+      try {
+        const linkForce = fg.d3Force('link');
+        if (linkForce && typeof linkForce.distance === 'function') {
+          linkForce.distance(100);
+        }
+        const chargeForce = fg.d3Force('charge');
+        if (chargeForce && typeof chargeForce.strength === 'function') {
+          chargeForce.strength(-400);
+        }
+        if (typeof fg.d3VelocityDecay === 'function') fg.d3VelocityDecay(0.4);
+        if (typeof fg.d3AlphaDecay === 'function') fg.d3AlphaDecay(0.02);
+        if (typeof fg.d3AlphaMin === 'function') fg.d3AlphaMin(0.01);
+      } catch (e) {
+        // no-op if API differs
+      }
 
       const onResize = () => {
         fg.width(container.clientWidth);
@@ -214,6 +231,7 @@
           if (availableWidth < minContentWidth) {
             const newPaneWidth = viewportWidth - minContentWidth;
             pane.style.width = Math.max(280, newPaneWidth) + 'px';
+            try { localStorage.setItem('vrGraphW', String(Math.max(280, newPaneWidth))); } catch {}
           }
           
           // Update CSS custom properties
@@ -228,10 +246,51 @@
     window.addEventListener('resize', handleResize);
     handleResize(); // Initial call
   }
+  
+  // Hotkeys similar to Obsidian
+  function setupHotkeys() {
+    document.addEventListener('keydown', (e) => {
+      const isMac = navigator.platform && navigator.platform.toUpperCase().includes('MAC');
+      const mod = isMac ? e.metaKey : e.ctrlKey;
+      // Toggle right graph sidebar: Cmd/Ctrl + /
+      if (mod && (e.key === '/' || e.key === '?')) {
+        e.preventDefault();
+        const btn = document.getElementById('vrmines-graph-toggle');
+        if (btn) btn.click();
+      }
+      // Focus search: Cmd/Ctrl + P
+      if (mod && e.key && e.key.toLowerCase() === 'p') {
+        e.preventDefault();
+        const search = document.querySelector('input.md-search__input');
+        const trigger = document.querySelector('label[for="__search"]');
+        if (search) { search.focus(); search.select(); }
+        else if (trigger) { trigger.click(); }
+      }
+    });
+  }
 
   async function init() {
     const pane = ensurePane();
+    // Mark layout as active so CSS shifts content
+    document.body.classList.add('vrmines-graph-active');
+    // Restore persisted width and collapsed state
+    try {
+      const savedW = localStorage.getItem('vrGraphW');
+      if (savedW) {
+        const px = parseInt(savedW, 10);
+        if (!Number.isNaN(px)) {
+          document.documentElement.style.setProperty('--vr-graph-w', px + 'px');
+          const paneEl = document.getElementById('vrmines-graph-pane');
+          if (paneEl) paneEl.style.width = px + 'px';
+        }
+      }
+      const savedCollapsed = localStorage.getItem('vrGraphCollapsed');
+      if (savedCollapsed === 'true') {
+        document.body.classList.add('vrmines-graph-collapsed');
+      }
+    } catch {}
     setupAutoResize();
+    setupHotkeys();
     const data = await loadGraph();
     if (data) renderGraph(data);
   }
