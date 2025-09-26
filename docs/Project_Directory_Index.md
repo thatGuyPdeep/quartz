@@ -15,6 +15,7 @@ updated: 2025-09-15
 ## Plans & Roadmaps
 - [[./90_Roadmap_Updates/90_Day_Master_Plan|90-Day Build + Post-90 Polish]]
 - [[./90_Roadmap_Updates/90_Day_VR_Miner_Roadmap|90-Day Roadmap — VR Miner Training (Quest 3)]]
+- [[./90_Roadmap_Updates/Week_03_Status_and_Next_Two_Weeks|Week 3 Status + Next Two Weeks]]
 - [[./70_Project_Documentation/DOTS_Migration_Plan|DOTS Migration Plan]]
 - [[./70_Project_Documentation/XR_to_DOTS_Bridge_Plan|Unity XR → DOTS Bridge Plan]]
 
@@ -27,6 +28,7 @@ updated: 2025-09-15
 - [[./70_Project_Documentation/VR_Coal_Mining_Simulator/INDEX|Simulator Index]]
   - [[./70_Project_Documentation/VR_Coal_Mining_Simulator/Backlog|Backlog]] • [[./70_Project_Documentation/VR_Coal_Mining_Simulator/Backlog.kanban|Kanban]]
   - [[./70_Project_Documentation/VR_Coal_Mining_Simulator/Features/Drill_System_DOTS|Drill System (DOTS)]]
+  - [[./70_Project_Documentation/VR_Coal_Mining_Simulator/Features/Procedural_Hazards_Gamification|Procedural Hazards + Gamification]]
   - [[./70_Project_Documentation/VR_Coal_Mining_Simulator/Systems_Analysis|Systems Analysis]]
   - [[./70_Project_Documentation/VR_Coal_Mining_Simulator/External_Overview_Utilization|External Overview Utilization]]
   - [[./70_Project_Documentation/VR_Coal_Mining_Simulator/Overview_Condensed|Overview (Condensed)]]
@@ -42,6 +44,7 @@ updated: 2025-09-15
   - [[./80_Research_Notes/Interaction_Pattern_Library|Interaction Pattern Library]]
   - [[./80_Research_Notes/Comfort_and_Safety_Guidelines|Comfort & Safety Guidelines]]
   - [[./80_Research_Notes/Debrief_Rubric|Debrief Rubric]]
+  - [[./80_Research_Notes/Week_03_Research_Synthesis|Week 3 Research Synthesis]]
 
 ## Daily/Weekly
 - [[./40_Daily/README|Daily Logs]] • [[./40_Daily/Weekly|Weekly Notes]] • [[./40_Daily/Progress_Tracker|Progress Tracker]]

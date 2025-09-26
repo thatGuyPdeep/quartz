@@ -112,3 +112,112 @@
 3. **Community**: Learning together
 4. **Technical Depth**: DOTS for mobile VR
 5. **Human Impact**: Training that improves safety
+
+
+
+## OBS settings:
+
+#### Learning XR on Unity
+I’m starting my Unity XR learning journey — live, raw, and from scratch 🚀.
+
+Over the next 90 days, I’ll be building a VR Mining Simulator for training & safety at IIT Delhi while sharing everything I learn in Unity XR, DOTS, and immersive game design.
+
+  
+
+This isn’t a polished tutorial — it’s a real-time devlog where I figure things out on the go. Expect:
+
+🎮 Unity XR setup, interactions & hand tracking
+
+⚡ Migrating OOP → DOTS for performance (Quest 3 ready)
+
+🔥 Designing hazards, gamification & procedural boss-levels
+
+🕹️ Behind-the-scenes of research + creative experiments
+
+💡 Honest fails, bugs, fixes & “aha!” moments
+
+  
+
+If you’re curious about VR/AR, XR design, gamification, or game dev, this is for you.
+
+👉 Subscribe & join me on this journey into the world of XR.
+
+  
+
+💻 Rig: RTX 5090 + i9 14th Gen @ 4K Ultra
+
+📌 Weekly devlogs + live Q&A
+
+📌 Bi-weekly 90s feature demo compilation
+
+  
+
+#Unity #XRDevelopment #VRDevlog #DOTS #Quest3 #LearningXR
+
+
+---
+
+#### Equinox Katana | Valorant Ranked Grind 💀 | RTX 5090 + i9 14th Gen @ 4K
+
+**📌 Stream Description:**  
+Welcome to the stream! I’m **EquinoxKatana** — experimenting with strategies, clutch plays, and mind games in Valorant. 🌌
+
+⚡ Main: **Omen** (because shadows never die)  
+🎮 Streams: Competitive grind • Gameplay • Tips  
+🌀 Expect: High-level plays, creative strats, and the occasional chaos.
+
+💻 Rig: **RTX 5090 + i9 14th Gen @ 4K Ultra Settings** 🚀
+
+🔥 Don’t forget to like, chat, and follow for more streams.  
+#Valorant #OmenMain #RTX5090 #LiveGaming
+
+---
+
+#### Equinox Katana | Fortnite @ 4K Ultra | RTX 5090 + i9 14th Gen | Ranked Push 🔥
+
+Step into the ultimate Fortnite battleground with **Equinox Katana** 🌌⚔️.  
+Powered by the insane **RTX 5090** + **i9 14th Gen**, this stream brings you **buttery-smooth 4K Ultra gameplay**. Expect high-octane fights, tactical building, and clutch wins—delivered with cinematic visuals and raw intensity.
+
+💠 What you’ll see:
+
+- Ranked grind with pro-level plays 🏆
+    
+- Zero build & classic build battles 🔨
+    
+- Epic snipes, insane edits & god-tier clutches 🎯
+    
+- Real-time chat engagement 💬
+    
+
+📌 **Specs:**
+
+- GPU: RTX 5090
+    
+- CPU: Intel i9 14th Gen
+    
+- Resolution: Native 4K Ultra Settings
+    
+
+⚡ Stay tuned for highlight reels, collabs, and moments where victory royales feel like destiny.  
+👉 Hit **Follow** + **Subscribe** to join the **Equinox Legion**.
+
+---
+
+#### The Finals Live Stream @ 4K Ultra | RTX 5090 + i9 14th Gen
+
+Welcome to the arena! ⚡  
+I’m streaming **The Finals** — the explosive, fast-paced destruction-based FPS that’s rewriting competitive shooters.
+
+Watch me go all-in with:  
+🔥 **4K Ultra Settings** — powered by **RTX 5090 + i9 14th Gen**  
+💥 Insane gunfights, dynamic destruction & high-octane action  
+🎮 Live reactions, strategy breakdowns & clutch moments  
+🤝 Community chat — let’s hang out, discuss loadouts & tactics
+
+This isn’t just gameplay, it’s a full **immersive experience**. Whether you’re a veteran or new to _The Finals_, you’ll get pro-level breakdowns, fun commentary, and chaotic highlights.
+
+⚡ Don’t forget to like 👍, subscribe 🔔, and join the stream for live Q&A, gaming vibes, and epic wins.
+
+---
+
+#TheFinals #RTX5090 #FPSGaming #i9Gaming #StreamingIn4K
