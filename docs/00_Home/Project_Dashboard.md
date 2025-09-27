@@ -15,18 +15,19 @@ tags: [dashboard]
 
 | Area | Status | Owner | Notes |
 |---|---|---|---|
-| Drill (DOTS) | In Progress | PDT | Input/Motion systems prototyped |
-| DOTS Plan | Active | PDT | Scope defined, week 2 targets |
-| Roadmap W1 | Completed | PDT | Next: ECS Physics week |
-| Research | Ongoing | PDT | Immersion + mining workflow |
+| Research & Design | Completed | PDT | Week 3 synthesis, gamification spec |
+| Roadmap | Updated | PDT | Solo realistic timeline, learning buffers |
+| Documentation | Live | PDT | Website updated, all notes accessible |
+| Meeting | Missed | PDT | Sent comprehensive email update |
 
 ## Milestone Flow
 ```mermaid
 graph LR
-  W1[Week 1: Foundation] --> W2[Week 2: ECS Physics]
-  W2 --> W3[Week 3: Extraction + Cart]
-  W3 --> W4[Week 4: Safety Integration]
-  W4 --> R[Release Candidate @ Day 90]
+  W1[Week 1: Foundation] --> W2[Week 2: Research]
+  W2 --> W3[Week 3: Design Synthesis]
+  W3 --> W4[Week 4: Unity XR Setup]
+  W4 --> W5[Week 5: First Prototype]
+  W5 --> R[Release Candidate @ Day 90]
   R --> P[Post-90 Polish]
 ```
 
@@ -53,9 +54,9 @@ graph TD
 
 ## Workload Split
 ```mermaid
-pie title Work Focus (Week 1)
-  "ECS Drill" : 40
-  "Docs & Planning" : 25
-  "Research" : 20
-  "Content/Devlog" : 15
+pie title Work Focus (Week 3)
+  "Research & Design" : 50
+  "Documentation" : 30
+  "Roadmap Planning" : 15
+  "Website Updates" : 5
 ```

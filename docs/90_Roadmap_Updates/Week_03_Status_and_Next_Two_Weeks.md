@@ -11,10 +11,17 @@ updated: 2025-09-26
 - Structured research on XR embodiment, MDA design, gamification, procedural hazards.
 - Organized notes in vault and linked to simulator specs.
 - Defined feature: [[../70_Project_Documentation/VR_Coal_Mining_Simulator/Features/Procedural_Hazards_Gamification|Procedural Hazards + Gamification]].
+- Updated documentation website with all progress and made it live.
+
+**Meeting status**
+- Missed Friday meeting with Prof Srini due to work consolidation.
+- Sent comprehensive email update with progress and next steps.
+- Requested feedback on two-week scope and demo preference.
 
 **Framing for advisor**
 - Focused on foundational research and documentation to accelerate October implementation.
 - Set up clear, measurable targets for the next two weeks.
+- All work documented and accessible via live website.
 
 ### Next Two Weeks Plan (solo realistic)
 

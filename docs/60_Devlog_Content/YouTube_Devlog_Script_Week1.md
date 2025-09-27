@@ -221,3 +221,37 @@ This isn’t just gameplay, it’s a full **immersive experience**. Whether you�
 ---
 
 #TheFinals #RTX5090 #FPSGaming #i9Gaming #StreamingIn4K
+
+---
+
+
+### 🎮 Learning Game Design – Live Stream
+
+I’m diving deep into the world of **Game Design** — learning, experimenting, and sharing the process live 🚀.
+
+This stream is about **figuring out game design from the ground up**:
+
+- 📚 Exploring **game design principles & MDA framework**
+    
+- 🧠 Understanding **player psychology & motivation**
+    
+- 🎨 Building **stories, mechanics, and aesthetics**
+    
+- ⚡ Experimenting with **Unity, Unreal & XR experiences**
+    
+- 🎮 Breaking down existing games (_Valorant, The Finals, indie titles_) to see what makes them tick
+    
+
+I’ll be documenting my **learning journey** step by step — from theory to practice — so if you’re curious about **how games are designed, prototyped, and tested**, this is the space.
+
+👥 Join live, ask questions, share insights — let’s make it interactive.
+
+💻 Rig: RTX 5090 + i9 14th Gen @ 4K Ultra Settings  
+📌 Weekly devlogs + live discussions  
+📌 Future series: VR/XR design, gamification, neurogaming experiments
+
+---
+
+#GameDesign #Unity #UnrealEngine #GameDev #XR #LearningGameDesign #MDA
+
+![[Pasted image 20250926203650.png]]
