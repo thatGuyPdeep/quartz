@@ -1,8 +1,32 @@
 :root {
   --vr-graph-w: 25vw;
-  --vr-graph-min-w: 280px;
-  --vr-graph-max-w: 400px;
+  --vr-graph-min-w: 320px;
+  --vr-graph-max-w: 450px;
   --content-min-w: 60vw;
+  
+  /* Enhanced color palette inspired by Quartz */
+  --graph-bg-primary: #0a0e13;
+  --graph-bg-secondary: #1a1f2e;
+  --graph-bg-tertiary: #2a2f3a;
+  --graph-border: #3a3f4a;
+  --graph-text-primary: #e8eaed;
+  --graph-text-secondary: #9aa0a6;
+  --graph-text-muted: #5f6368;
+  --graph-accent: #4285f4;
+  --graph-accent-hover: #5a95f5;
+  --graph-success: #34a853;
+  --graph-warning: #fbbc04;
+  --graph-error: #ea4335;
+  
+  /* Enhanced shadows and effects */
+  --graph-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --graph-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --graph-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
+  --graph-shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.2);
+  
+  /* Smooth transitions */
+  --graph-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --graph-transition-slow: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #vrmines-graph-pane {
@@ -12,124 +36,380 @@
   height: 100vh;
   width: clamp(var(--vr-graph-min-w), var(--vr-graph-w), var(--vr-graph-max-w));
   z-index: 10;
-  background: var(--bg, #0b0f14);
-  border-left: 1px solid var(--lightgray, #2a2f3a);
-  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, var(--graph-bg-primary) 0%, var(--graph-bg-secondary) 100%);
+  border-left: 1px solid var(--graph-border);
+  box-shadow: var(--graph-shadow-xl);
+  backdrop-filter: blur(10px);
+  transition: var(--graph-transition);
+  overflow: hidden;
 }
 
 #vrmines-graph-canvas {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #0b0f14 0%, #1a1f2e 100%);
+  background: linear-gradient(135deg, var(--graph-bg-primary) 0%, var(--graph-bg-secondary) 100%);
   cursor: grab;
+  position: relative;
+  overflow: hidden;
 }
 
 #vrmines-graph-canvas:active {
   cursor: grabbing;
 }
 
-/* Graph loading state */
+/* Enhanced loading state with animation */
 #vrmines-graph-canvas.loading {
-  background: linear-gradient(135deg, #0b0f14 0%, #1a1f2e 100%);
+  background: linear-gradient(135deg, var(--graph-bg-primary) 0%, var(--graph-bg-secondary) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #8899aa;
+  color: var(--graph-text-secondary);
   font-size: 14px;
+  font-weight: 500;
+  position: relative;
 }
 
 #vrmines-graph-canvas.loading::before {
   content: "Loading knowledge graph...";
+  animation: pulse 2s ease-in-out infinite;
 }
 
-/* Drag resizer */
+#vrmines-graph-canvas.loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  border: 3px solid var(--graph-border);
+  border-top: 3px solid var(--graph-accent);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Enhanced drag resizer with visual feedback */
 #vrmines-graph-pane::before {
   content: "";
   position: absolute;
-  left: -5px;
+  left: -6px;
   top: 0;
-  width: 10px;
+  width: 12px;
   height: 100%;
   cursor: col-resize;
   z-index: 11;
+  background: transparent;
+  transition: var(--graph-transition);
 }
 
-/* Toggle button */
+#vrmines-graph-pane::before:hover {
+  background: linear-gradient(90deg, transparent 0%, var(--graph-accent) 50%, transparent 100%);
+  opacity: 0.3;
+}
+
+/* Enhanced toggle button with modern design */
 #vrmines-graph-toggle {
   position: fixed;
-  right: calc(var(--vr-graph-w) + 8px);
-  top: 72px;
+  right: calc(var(--vr-graph-w) + 12px);
+  top: 80px;
   z-index: 11;
-  background: var(--light, #13202e);
-  color: var(--dark, #cfd6df);
-  border: 1px solid var(--lightgray, #2a2f3a);
-  border-radius: 6px;
-  padding: 8px 12px;
+  background: var(--graph-bg-tertiary);
+  color: var(--graph-text-primary);
+  border: 1px solid var(--graph-border);
+  border-radius: 8px;
+  padding: 10px 14px;
   cursor: pointer;
   font-size: 14px;
-  font-weight: 500;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+  transition: var(--graph-transition);
+  box-shadow: var(--graph-shadow-md);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 44px;
+  justify-content: center;
 }
 
 #vrmines-graph-toggle:hover {
-  background: var(--lightgray, #2a2f3a);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  background: var(--graph-accent);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--graph-shadow-lg);
+  border-color: var(--graph-accent-hover);
 }
 
 #vrmines-graph-toggle:active {
   transform: translateY(0);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--graph-shadow-md);
 }
 
-/* Shift content so it isn't blocked */
+#vrmines-graph-toggle:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.2);
+}
+
+/* Toggle button icon animation */
+#vrmines-graph-toggle .icon {
+  transition: var(--graph-transition);
+  font-size: 16px;
+}
+
+#vrmines-graph-toggle:hover .icon {
+  transform: scale(1.1);
+}
+
+/* Enhanced content shifting with smooth transitions */
 body.vrmines-graph-active .md-main {
   margin-right: clamp(var(--vr-graph-min-w), var(--vr-graph-w), var(--vr-graph-max-w));
   min-width: var(--content-min-w);
+  transition: var(--graph-transition-slow);
 }
 
 /* Ensure content is never too narrow */
 body.vrmines-graph-active .md-content {
   min-width: 400px;
+  transition: var(--graph-transition-slow);
 }
 
-/* Collapsed state */
+/* Enhanced collapsed state with animations */
 body.vrmines-graph-collapsed #vrmines-graph-pane {
-  display: none;
+  transform: translateX(100%);
+  opacity: 0;
+  pointer-events: none;
 }
+
 body.vrmines-graph-collapsed .md-main {
   margin-right: 0;
-}
-body.vrmines-graph-collapsed #vrmines-graph-toggle {
-  right: 8px;
+  transition: var(--graph-transition-slow);
 }
 
-/* Responsive breakpoints */
+body.vrmines-graph-collapsed #vrmines-graph-toggle {
+  right: 12px;
+  background: var(--graph-accent);
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Graph pane slide-in animation */
+#vrmines-graph-pane {
+  transform: translateX(0);
+  opacity: 1;
+  transition: var(--graph-transition-slow);
+}
+
+/* Enhanced focus states for accessibility */
+#vrmines-graph-pane:focus-within {
+  box-shadow: var(--graph-shadow-xl), 0 0 0 2px var(--graph-accent);
+}
+
+/* Enhanced responsive breakpoints with better mobile experience */
 @media (max-width: 1200px) {
   :root {
-    --vr-graph-w: 20vw;
+    --vr-graph-w: 22vw;
+  }
+  
+  #vrmines-graph-toggle {
+    right: calc(var(--vr-graph-w) + 8px);
+    top: 70px;
   }
 }
 
 @media (max-width: 1000px) {
   :root {
-    --vr-graph-w: 15vw;
+    --vr-graph-w: 18vw;
   }
+  
   #vrmines-graph-pane {
-    min-width: 250px;
+    min-width: 280px;
+  }
+  
+  #vrmines-graph-toggle {
+    right: calc(var(--vr-graph-w) + 6px);
+    top: 60px;
+    padding: 8px 12px;
+    font-size: 13px;
   }
 }
 
 @media (max-width: 768px) {
   #vrmines-graph-pane { 
-    display: none; 
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
   }
+  
   #vrmines-graph-toggle { 
-    right: 8px; 
+    right: 12px;
+    top: 50px;
+    position: fixed;
+    z-index: 1000;
   }
+  
   body.vrmines-graph-active .md-main {
     margin-right: 0;
+  }
+  
+  /* Mobile-specific toggle button styling */
+  #vrmines-graph-toggle {
+    background: var(--graph-accent);
+    color: white;
+    box-shadow: var(--graph-shadow-lg);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  #vrmines-graph-toggle {
+    right: 8px;
+    top: 40px;
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* Dark mode enhancements */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --graph-bg-primary: #0a0e13;
+    --graph-bg-secondary: #1a1f2e;
+    --graph-bg-tertiary: #2a2f3a;
+    --graph-border: #3a3f4a;
+    --graph-text-primary: #e8eaed;
+    --graph-text-secondary: #9aa0a6;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --graph-border: #ffffff;
+    --graph-text-primary: #ffffff;
+    --graph-text-secondary: #cccccc;
+    --graph-accent: #00bfff;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Obsidian-style control panel */
+#vrmines-graph-controls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, var(--graph-bg-primary) 0%, transparent 100%);
+  padding: 12px;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.graph-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  pointer-events: auto;
+  background: var(--graph-bg-tertiary);
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--graph-border);
+  box-shadow: var(--graph-shadow-md);
+  backdrop-filter: blur(10px);
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.control-group label {
+  color: var(--graph-text-secondary);
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.control-group input,
+.control-group select {
+  background: var(--graph-bg-primary);
+  border: 1px solid var(--graph-border);
+  border-radius: 4px;
+  color: var(--graph-text-primary);
+  font-size: 12px;
+  padding: 4px 8px;
+  min-width: 120px;
+  transition: var(--graph-transition);
+}
+
+.control-group input:focus,
+.control-group select:focus {
+  outline: none;
+  border-color: var(--graph-accent);
+  box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2);
+}
+
+.control-group button {
+  background: var(--graph-bg-primary);
+  border: 1px solid var(--graph-border);
+  border-radius: 4px;
+  color: var(--graph-text-primary);
+  font-size: 12px;
+  padding: 4px 8px;
+  cursor: pointer;
+  transition: var(--graph-transition);
+  white-space: nowrap;
+}
+
+.control-group button:hover {
+  background: var(--graph-accent);
+  color: white;
+  border-color: var(--graph-accent);
+}
+
+.control-group button:active {
+  transform: translateY(1px);
+}
+
+/* Mobile responsive controls */
+@media (max-width: 768px) {
+  .graph-controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  
+  .control-group {
+    justify-content: space-between;
+  }
+  
+  .control-group input,
+  .control-group select {
+    min-width: 100px;
   }
 }
 
