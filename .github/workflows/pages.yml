@@ -40,7 +40,7 @@ jobs:
 
       - name: Build site
         run: |
-          mkdocs build --site-dir site
+          python -m mkdocs build --site-dir site
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

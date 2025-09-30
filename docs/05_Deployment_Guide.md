@@ -376,6 +376,144 @@ public class Quest3AudioOptimizer : MonoBehaviour
 
 Your RTX 5090 setup will make development and testing much smoother - you can test at high fidelity and have plenty of headroom for complex scenes!
 
+## Graph Panel
+
+The VR Mines platform includes an interactive knowledge graph visualization that provides an Obsidian-style interface for exploring project documentation and relationships.
+
+### Features
+
+#### **Interactive Graph Visualization**
+- **Node Selection**: Click nodes to select them (Ctrl/Cmd+Click for multi-select)
+- **Search & Filter**: Use the control panel to search nodes and filter by category
+- **Zoom & Pan**: Mouse wheel to zoom, drag to pan around the graph
+- **Node Categories**: Color-coded nodes by content type (Home, Project, Research, Daily, etc.)
+- **Neighbor Highlighting**: Selected nodes highlight their connected neighbors
+
+#### **Control Panel**
+Located at the top of the graph pane:
+- **Search Input**: Type to search for specific nodes by name
+- **Category Filter**: Dropdown to filter nodes by category
+- **Clear Selection**: Button to deselect all selected nodes
+- **Reset View**: Button to reset zoom and center the graph
+
+#### **Keyboard Shortcuts**
+- **Ctrl/Cmd + G**: Toggle graph panel visibility
+- **Escape**: Close graph panel
+- **Ctrl/Cmd + Click**: Multi-select nodes
+
+### Enabling the Graph Panel
+
+The graph panel is automatically available on all pages. To toggle it:
+
+1. **Keyboard**: Press `Ctrl + G` (or `Cmd + G` on Mac)
+2. **Button**: Look for the graph icon button in the top-right corner
+3. **Mobile**: Tap the circular graph button for mobile-optimized controls
+
+### Troubleshooting Graph Issues
+
+#### **Graph Not Loading**
+```bash
+# Check if graph.json exists and is valid
+ls -la docs/assets/graph/graph.json
+
+# Regenerate graph data
+cd tools && python build_graph.py
+```
+
+#### **Performance Issues**
+- **Large Graphs**: Use category filtering to reduce visible nodes
+- **Slow Rendering**: Check browser console for JavaScript errors
+- **Memory Usage**: Close and reopen the graph panel to reset state
+
+#### **Missing Nodes**
+- **New Files**: Run `python tools/build_graph.py` to include new markdown files
+- **Broken Links**: Check that internal links use proper wiki-link format `[[Page Name]]`
+- **File Structure**: Ensure files follow the established folder structure
+
+#### **Search Not Working**
+- **Case Sensitivity**: Search is case-insensitive
+- **Partial Matches**: Search matches partial node names
+- **Special Characters**: Avoid special regex characters in search
+
+### Graph Data Structure
+
+The graph is generated from your markdown files and includes:
+
+```json
+{
+  "metadata": {
+    "version": "1.0",
+    "generated": "2025-01-27T...",
+    "totalNodes": 150,
+    "totalEdges": 300,
+    "categories": {
+      "home": 5,
+      "project": 45,
+      "research": 30,
+      "daily": 25,
+      "roadmap": 15,
+      "templates": 10,
+      "publish": 10,
+      "devlog": 10
+    }
+  },
+  "nodes": [
+    {
+      "id": "00_Home/INDEX",
+      "title": "Home Index",
+      "category": "home",
+      "importance": "high",
+      "tags": ["index", "navigation"]
+    }
+  ],
+  "edges": [
+    {
+      "source": "00_Home/INDEX",
+      "target": "Project_Directory_Index",
+      "weight": 0.8,
+      "type": "navigation"
+    }
+  ]
+}
+```
+
+### Customization
+
+#### **Adding New Categories**
+1. Update `CATEGORY_MAPPING` in `tools/build_graph.py`
+2. Add corresponding CSS colors in `docs/assets/ui/graph-pane.css`
+3. Regenerate graph data: `python tools/build_graph.py`
+
+#### **Modifying Node Colors**
+Edit the `--graph-category-*` CSS variables in `docs/assets/ui/graph-pane.css`:
+
+```css
+:root {
+  --graph-category-home: #4285f4;
+  --graph-category-project: #34a853;
+  --graph-category-research: #fbbc04;
+  /* Add more categories as needed */
+}
+```
+
+#### **Adjusting Graph Physics**
+Modify the `CONFIG.graph` object in `docs/assets/ui/graph-pane.js`:
+
+```javascript
+const CONFIG = {
+  graph: {
+    linkDistance: 100,        // Distance between connected nodes
+    chargeStrength: -300,     // Repulsion between nodes
+    velocityDecay: 0.3,       // Friction/damping
+    alphaDecay: 0.02,         // Simulation cooling rate
+    alphaMin: 0.01,           // Minimum simulation energy
+    linkStrength: 0.5,        // Link stiffness
+    centerStrength: 0.1,      // Center attraction
+    collisionRadius: 20       // Node collision radius
+  }
+};
+```
+
 
 
 
