@@ -33,6 +33,7 @@
 - [[./Periodic_Notes_Setup|Periodic Notes Setup]]
 - [[../Publish/README|Publish — Public Notes]]
 - [[Author_Profile|Author Profile & Social Links]]
+ - [[../60_Devlog_Content/Devlog_2025-09-23_to_2025-10-08|Devlog — 2025-09-23 → 2025-10-08]]
 
 ## 🌐 Live Site
 - **Public Website**: [https://thatGuyPdeep.github.io/quartz/](https://thatGuyPdeep.github.io/quartz/)

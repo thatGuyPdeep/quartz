@@ -47,7 +47,7 @@ updated: 2025-09-15
   - [[./80_Research_Notes/Week_03_Research_Synthesis|Week 3 Research Synthesis]]
 
 ## Daily/Weekly
-- [[./40_Daily/README|Daily Logs]] • [[./40_Daily/Weekly|Weekly Notes]] • [[./40_Daily/Progress_Tracker|Progress Tracker]]
+- [[./40_Daily/README|Daily Logs]] • [[./40_Daily/Weekly|Weekly Notes]] • [[./40_Daily/Progress_Tracker|Progress Tracker]] • [[./60_Devlog_Content/Devlog_2025-09-23_to_2025-10-08|Devlog — 2025-09-23 → 2025-10-08]]
 
 ## Publish (Public Notes)
 - [[./Publish/README|Publish Index]]

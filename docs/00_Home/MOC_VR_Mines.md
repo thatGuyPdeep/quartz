@@ -19,6 +19,7 @@ tags: [project/vr-mines, moc]
 - [[../80_Research_Notes/VR_Immersion_Factors_Training_Simulations|Research: VR Immersion Factors]]
 - [[../90_Roadmap_Updates/90_Day_Roadmap_Update_Week1|Roadmap Update — Week 1]]
 - [[../40_Daily/README|Daily Logs]]
+ - [[../60_Devlog_Content/Devlog_2025-09-23_to_2025-10-08|Devlog — 2025-09-23 → 2025-10-08]]
 
 ## Project Graph
 ```mermaid
