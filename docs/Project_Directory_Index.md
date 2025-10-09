@@ -27,6 +27,7 @@ updated: 2025-09-15
 ## Simulator Docs
 - [[./70_Project_Documentation/VR_Coal_Mining_Simulator/INDEX|Simulator Index]]
   - [[./70_Project_Documentation/VR_Coal_Mining_Simulator/Backlog|Backlog]] • [[./70_Project_Documentation/VR_Coal_Mining_Simulator/Backlog.kanban|Kanban]]
+  - [[./70_Project_Documentation/VR_Coal_Mining_Simulator/Backlog_Features_and_Bugfixes_2025-10-09|Backlog — Features & Bug Fixes (2025-10-09)]]
   - [[./70_Project_Documentation/VR_Coal_Mining_Simulator/Features/Drill_System_DOTS|Drill System (DOTS)]]
   - [[./70_Project_Documentation/VR_Coal_Mining_Simulator/Features/Procedural_Hazards_Gamification|Procedural Hazards + Gamification]]
   - [[./70_Project_Documentation/VR_Coal_Mining_Simulator/Systems_Analysis|Systems Analysis]]
