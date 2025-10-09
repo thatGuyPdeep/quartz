@@ -18,6 +18,7 @@ updated: 2025-09-15
 - [[./90_Roadmap_Updates/Week_03_Status_and_Next_Two_Weeks|Week 3 Status + Next Two Weeks]]
 - [[./70_Project_Documentation/DOTS_Migration_Plan|DOTS Migration Plan]]
 - [[./70_Project_Documentation/XR_to_DOTS_Bridge_Plan|Unity XR → DOTS Bridge Plan]]
+ - [[./70_Project_Documentation/User_Flow_Storyline|User Flow + Storyline (Updated)]]
 
 ## GDD & Design
 - [[./70_Project_Documentation/GDD/VR_Mines_GDD|GDD — SafeOps]]

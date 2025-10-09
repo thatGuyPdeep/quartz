@@ -9,7 +9,7 @@ tags: [dashboard]
 # VR Mines — Project Dashboard
 
 > [!info] Quick Entry Points
-> [[./INDEX|Home Index]] • [[./MOC_VR_Mines|MOC]] • [[../70_Project_Documentation/GDD/VR_Mines_GDD|GDD]] • [[../70_Project_Documentation/DOTS_Migration_Plan|DOTS Plan]] • [[../70_Project_Documentation/VR_Coal_Mining_Simulator/Backlog.kanban|Kanban]]
+> [[./INDEX|Home Index]] • [[./MOC_VR_Mines|MOC]] • [[../70_Project_Documentation/GDD/VR_Mines_GDD|GDD]] • [[../70_Project_Documentation/DOTS_Migration_Plan|DOTS Plan]] • [[../70_Project_Documentation/VR_Coal_Mining_Simulator/Backlog.kanban|Kanban]] • [[../70_Project_Documentation/VR_Coal_Mining_Simulator/Backlog_Features_and_Bugfixes_2025-10-09|Quick Fixes Backlog (2025-10-09)]]
 
 ## Status Summary
 
@@ -30,6 +30,13 @@ graph LR
   W5 --> R[Release Candidate @ Day 90]
   R --> P[Post-90 Polish]
 ```
+
+### Quick Fixes Checklist
+- [ ] Homepage button loads blank — fix target scene
+- [ ] Vehicle auto-brake when exiting; prevent jump-out
+- [ ] Drilling system (M2) interaction flow restore
+- [ ] Scoring system events to UI binding
+- [ ] Jittery ramp movement — adjust animation/physics
 
 ## Component Map
 ```mermaid

@@ -31,6 +31,28 @@ graph TD
   H --> E
 ```
 
+### Updated Menu-to-Mission Flow (2025-10-09)
+```mermaid
+flowchart TD
+  A[Splash Screen] --> B[Main Menu]
+  B -->|Start| C[Safety Training]
+  B -->|Load Game| C
+  B -->|Leaderboard| L[Leaderboard]
+  B -->|Settings| S[Settings]
+  S --> S1[Controls / Volume]
+  C --> D[Training Ground Checks]
+  D --> E[Helmet • Vest • Gloves • Boots]
+  E --> F[Proceed to Missions]
+  subgraph Missions
+    F --> M1[Drilling]
+    M1 --> M2[Blasting]
+    M2 --> M3[Hazard Handling]
+    M3 --> M4[Loading]
+  end
+  M4 --> R[Final Score • Report Generation]
+  R --> B
+```
+
 ## 2) Detailed Interaction Flow (Example: M1 Drilling L1)
 ```mermaid
 graph LR
